@@ -32,6 +32,7 @@ namespace StudentAppServer.Controllers
                                                           && x.Password == model.Password);
             if (student == null)
             {
+                //1
                 return NotFound("Account does not exist! ");
             }
             var appGroup = _unitOfWork.AppGroups.GetById(student.GroupId);

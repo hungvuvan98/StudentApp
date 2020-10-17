@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "udQQ64Qqb4sT8dnigmnvdOoF/fa/rVpJ2LJeBuiBuYJQ5X0GwerB3kNQevH3eCfjTWr06vLjNVk/aRNpu6Cu2Q==",
+  "dgSpecHash": "vktCa7ccU8RokbKNrizo3+ZxkbaC7VkBvkhPyszL+sPrAOmVy4F/n2klnn68skat3wif04Fgf9dTIY2hM45/sQ==",
   "success": true,
-  "projectFilePath": "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer\\StudentAppServer.csproj",
+  "projectFilePath": "C:\\Users\\haita\\Desktop\\New folder\\StudentApp\\StudentAppServer\\StudentAppServer\\StudentAppServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\haita\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.7\\microsoft.aspnetcore.authentication.jwtbearer.3.1.7.nupkg.sha512",
     "C:\\Users\\haita\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.7\\microsoft.aspnetcore.jsonpatch.3.1.7.nupkg.sha512",

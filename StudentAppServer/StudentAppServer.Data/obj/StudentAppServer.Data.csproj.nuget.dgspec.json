@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {}
+    "C:\\Users\\haita\\Desktop\\New folder\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {}
   },
   "projects": {
-    "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {
+    "C:\\Users\\haita\\Desktop\\New folder\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
+        "projectUniqueName": "C:\\Users\\haita\\Desktop\\New folder\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
         "projectName": "StudentAppServer.Data",
-        "projectPath": "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
+        "projectPath": "C:\\Users\\haita\\Desktop\\New folder\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
         "packagesPath": "C:\\Users\\haita\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\obj\\",
+        "outputPath": "C:\\Users\\haita\\Desktop\\New folder\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\haita\\AppData\\Roaming\\NuGet\\NuGet.Config",
