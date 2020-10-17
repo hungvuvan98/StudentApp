@@ -1,0 +1,84 @@
+<div class="panel-header panel-header-sm"></div>
+
+<div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">              
+            <div class="form-group form-inline mt-2">
+                <input class="form-control " placeholder="search any here..." #searchBox id="search-box" (input)="SearchClass(searchBox.value)" />
+                <button type="button" class="btn btn-outline-success ml-4"(click)="ShowAddClass(newclass);">
+                  <i class="fa fa-plus">&nbsp; Thêm mới</i>
+                </button>
+                <button type="button" class="btn btn-outline-success ml-4">
+                  <i class="fa fa-plus">inser excel</i>
+                </button>
+            </div>    
+          </div>
+         <div class="card-body" style="font-size: 13px;">
+            <div class="row table-responsive" > 
+              <form>                             
+                <table class="table table-hover table-bordered text-center">
+                  <thead class="thead-dark" style="font-size: 10px">
+                  <tr>
+                    <th scope="col" >Mã lớp</th>
+                    <th scope="col" >Mã HP</th>
+                    <th scope="col" >Tên HP</th>
+                    <th scope="col">Kì học</th>
+                    <th scope="col" >Số lượng tối đa</th>
+                    <th scope="col" >Phòng học</th>
+                    <th scope="col" >Khoa viện</th>
+                    <th scope="col" >Thời gian</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Đóng lớp</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let class of listClass | paginate: config ">   
+                    <td>{{class.secId}}</td>  
+                    <td>{{class.courseId}}</td> 
+                    <td>{{class.title}}</td> 
+                    <td>{{class.semester}}</td>  
+                    <td>{{class.capacity}} </td>  
+                    <td>{{class.building}} - {{class.roomNumber}}</td>   
+                    <td>{{class.name}}</td> 
+                    <td>{{class.startHr}}:{{class.startMin}}&nbsp; đến &nbsp;{{class.endHr}}:{{class.endMin}}</td> 
+                    <td>{{class.status}}</td>                     
+                  </tr>
+                  </tbody>
+                </table>   
+                <pagination-controls (pageChange)="PageAction($event)"></pagination-controls>           
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- newClass -->
+  <ng-template #newclass let-modal>
+    <form [formGroup]="addClassForm" (ngSubmit)="AddClass()">
+     <div class="modal-body">
+       <div class="main-content">
+         <div class="row">
+           <div class="col-md-12">
+             <div class="card">
+              
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div class="modal-footer">
+       <button class="btn btn-primary">
+         <span class="spinner-border spinner-border-sm"></span>
+         Loading..
+       </button>
+       <button type="submit" class="btn btn-danger" >Save</button>
+       <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+     </div>
+    </form>
+   </ng-template> 
+
+ 

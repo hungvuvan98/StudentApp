@@ -1,0 +1,64 @@
+
+.sidenav {
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:#f2f1eb;
+    overflow-x: hidden;
+    padding-top: 5px;
+    color: #337ab7;
+  }
+
+  .sidenav a, .dropdown-btn {
+    
+    font-size: 14px;
+    color: #337ab7;
+    background-color: none;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+  }
+  .dropdown-btn{
+      margin-left: 12px;
+     
+  }
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+    color: red;
+  }
+
+.main {
+    margin-left: 260px; /* Same as the width of the sidenav */
+    font-size: 14px; /* Increased text to enable scrolling */
+    width: 100%;
+  }
+
+  /* Add an active class to the active dropdown button */
+.active {
+    background-color: royalblue !important ;
+    color:red;
+  }
+  
+  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    margin-left: 20px;
+    transition: 0.5s;
+}
+  
+  /* Optional: Style the caret down icon */
+
+  
+  /* Some media queries for responsiveness */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+.list-group-item{
+    border-left: none;
+    height: auto;
+}

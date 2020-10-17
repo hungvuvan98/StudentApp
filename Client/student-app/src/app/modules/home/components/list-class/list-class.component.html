@@ -1,0 +1,109 @@
+
+<div class="container-fluid " style="overflow: hidden;">
+    <div class="border-bottom row">
+        <img src="./assets/img/Logo-vied.png" width="28%" class="mt-2 mb-2" >       
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="">
+               <div class="row col-sm-12 pb-3">
+                    <img src="./assets/img/ltit.png" height="40px" alt="">               
+                    <span class="text-header">Trang Sinh Viên Đăng Ký Học</span>
+                    <img src="./assets/img/rtit.png" height="40px" alt="">      
+                    <div class="pt-2" style="padding-left: 15%; color: red;" *ngIf="message">
+                       {{message}}
+                     </div>    
+                    <div style="padding-left: 30%; padding-top: 10px;" >
+                        <a routerLink="/student/course-register">
+                            <i class="fa fa-undo text-info" aria-hidden="true">&nbsp;Quay lại trang đk</i>
+                        </a>
+                    </div>          
+               </div>                   
+               <div class="container-fluid scroll" >   
+                         <table class="table table-bordered">
+                            <thead class="thead-light text-center" style="font-size: 10px;">
+                              <tr>
+                                <th>Mã lớp</th>
+                                <th>Mã HP</th>
+                                <th>Tên HP</th>
+                                <th>TC</th>
+                                <th>Ghi chú</th>
+                                <th>Loại lớp</th>
+                                <th>Max ĐK</th>
+                                <th>Đã ĐK</th>
+                                <th>Khoa viện</th>   
+                                <th>Chi tiết</th>   
+                              </tr>
+                             </thead>
+                             <tbody class="text-left">
+                               <tr>
+                                 <td><input class="form-control" #secId (input)="SearchBySecId(secId.value)" ></td>
+                                 <td><input class="form-control" #courseId (input)="SearchByCourseId(courseId.value)" ></td>
+                                 <td><input class="form-control" #title (input)="SearchByTitle(title.value)" ></td>
+                                 <td><input class="form-control" #credit (input)="SearchByCredit(credit.value)" ></td>
+                                 <td><input class="form-control"  ></td>
+                                 <td><input class="form-control"  ></td>
+                                 <td><input class="form-control"  ></td>
+                                 <td><input class="form-control" ></td>
+                                 <td><input class="form-control" #deptname (input)="SearchByDepartment(deptname.value)" ></td>
+                                 <td><input class="form-control" ></td>
+                               </tr>
+                              <tr *ngFor="let class of listClass | paginate: config" >
+                                <td>{{ class.secId }}</td>
+                                <td>{{ class.courseId }}</td>
+                                <td>{{ class.title }}</td>
+                                <td>{{ class.credit }}</td>
+                                <td>Updating...</td>
+                                <td>LT + BT</td>
+                                <td>{{ class.capacity }}</td>
+                                <td>{{ class.totalRegistered }}</td>
+                                <td>{{ class.name }}</td>     
+                                <td class=" text-center">
+                                  <button class="btn btn-sm btn-info" (click)="Detail(class.secId);ShowDetailClass(detail)">Xem</button>
+                                </td>                                      
+                              </tr>
+                            </tbody>                                              
+                          </table>
+                          <pagination-controls class="text-center" (pageChange)="PageAction($event)"></pagination-controls>                                        
+               </div>    
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #detail let-modal>
+  <div class="modal-header">
+    <span>Lịch học môn {{detailClass.title}} - {{detailClass.courseId}}</span>
+  </div>
+   <div class="modal-body">
+     <div class="main-content">
+      <table class="table table-bordered">
+        <thead class="thead-light text-center" style="font-size: 10px;">
+          <tr>
+            <th>Thứ</th>
+            <th>Thời gian</th>
+            <th>Phòng học</th>
+            <th>Mã lớp</th>
+            <th>Mã HP</th>
+            <th>Số TC</th>
+            <th>Đã ĐK</th>
+          </tr>
+         </thead>
+         <tbody class="text-center">
+          <tr>
+            <td>{{ detailClass.day }}</td>
+            <td>{{ detailClass.startHr }}: {{ detailClass.startMin }}&nbsp;đến&nbsp;{{detailClass.endHr}}:{{detailClass.endMin}} </td>
+            <td>{{ detailClass.building }}-{{ detailClass.roomNumber }}</td>
+            <td>{{ detailClass.secId }}</td>
+            <td>{{ detailClass.courseId }}</td>
+            <td>{{ detailClass.credit }}</td>
+            <td>{{ detailClass.totalRegistered }} / {{ detailClass.capacity }}</td>                                                 
+          </tr>
+        </tbody>                                              
+      </table>
+     </div>
+   </div>
+   <div class="modal-footer">
+     <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+   </div>
+ </ng-template> 

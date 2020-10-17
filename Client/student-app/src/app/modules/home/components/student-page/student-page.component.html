@@ -1,0 +1,55 @@
+<!-- <p>student-page works!</p>
+
+<a routerLink="/course-register">dang ky hoc</a> -->
+<div class="container-fluid">
+    <div class="row">     
+      <div class="sidenav">
+        <ul class="list-group">
+          <li class="row d-block mx-auto m-2">
+               <img src="{{student?.avatar}}"  class="rounded-circle" width="40px" height="40px">
+               <span class="ml-2">{{student?.name|uppercase}}</span>
+          </li>
+          <li class="list-group-item"><a routerLink="notification">Thư báo</a></li>
+          <li class="list-group-item"><a routerLink="/student/course-register">Dk hoc</a></li>
+          <li class="list-group-item"><a routerLink="#">Đổi mật khẩu</a></li>
+          <li class="list-group-item"><a routerLink="#" (click)="Logout()">Đăng xuất</a></li>
+          <li class="list-group-item"><a routerLink="#">Thông tin sinh viên</a></li>
+          <li class="list-group-item"><a routerLink="#">Cập nhật thông tin cá nhân</a></li>
+          <li class="list-group-item"><a routerLink="#">Thông tin lớp sinh viên</a></li>
+        </ul>
+
+        <ul class="list-group dropdown-btn" (click)="drop('1')"> 
+          <li class="list-group-item row">
+              <i class="fa fa-angle-right pr-2 text-danger"  aria-hidden="true"></i>
+              <span >Chương trình đào tạo</span>
+          </li>
+        </ul>
+        <ul class="list-group" [hidden]="show1" [(ngModel)]="show1"  ngDefaultControl>
+          <li class="list-group-item pl-5"><a href="#">Chương trình đào tạo sv</a></li> 
+          <li class="list-group-item pl-5"><a href="#">Danh mục học phần</a></li>
+          <li class="list-group-item pl-5"><a href="#">Tra cứu danh sách lớp sv</a></li>
+        </ul>
+        
+        <ul class="list-group dropdown-btn"(click)="drop('2')" > 
+          <li class="list-group-item row" >
+              <i class="fa fa-angle-right pr-2 text-danger" aria-hidden="true"></i>
+              <span >Kế hoạch học tập</span>
+          </li>
+        </ul>
+        <ul class="list-group" [hidden]="show2" [(ngModel)]="show2" ngDefaultControl>
+          <li class="list-group-item pl-5"><a href="#">Đăng ký học phần</a></li> 
+          <li class="list-group-item pl-5"><a href="#">Đăng ký lớp học</a></li>
+          <li class="list-group-item pl-5"><a href="#">Thời khóa biểu</a></li>
+          <li class="list-group-item pl-5"><a href="#">Tra cứu đăng ký học tập</a></li>
+        </ul>
+
+        <li class="list-group-item">Kết quả học tập</li>
+        <li class="list-group-item" >Đồ án-tốt nghiệp</li>
+       <li class="list-group-item">Phân ngành</li>    
+     </div>
+     <div class="main"> 
+          <router-outlet></router-outlet>
+       </div>
+    </div>  
+</div>
+

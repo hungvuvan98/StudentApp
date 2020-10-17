@@ -1,0 +1,409 @@
+<div class="panel-header panel-header-sm">
+</div>
+
+<!-- list student -->
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">         
+            <form class="title row" [formGroup]="filterForm" (change)="FilterData(filterForm.value)">
+              <select class="custom-select custom-select-sm ml-3" style="width: 20%;" formControlName="year_">
+                <option value="" disabled selected>Khóa học</option>
+                <option *ngFor="let year of year" [ngValue]="year">{{year}}</option>  
+              </select>  
+              <select class="custom-select custom-select-sm ml-3" style="width: 30%;" formControlName="dept_">
+                <option value="" selected disabled>Khoa/viện</option>
+                <option *ngFor="let dept_name of departmentName" [ngValue]="dept_name" >{{dept_name}}</option>
+              </select>  
+              <select class="custom-select custom-select-sm ml-3" style="width: 30%;" formControlName="class_">
+                <option value="" selected disabled>Lớp sv</option>
+                <option *ngFor="let class of className" [ngValue]="class">{{class}}</option>             
+              </select>  
+            </form>        
+            <div class="form-group form-inline mt-2">
+              <input class="form-control " placeholder="mssv" #searchBox id="search-box" (input)="SearchId(searchBox.value)" />
+              <button type="button" class="btn btn-outline-success ml-4"(click)="ShowAddStudent(newstudent);">
+                <i class="fa fa-plus">&nbsp; Thêm mới</i>
+              </button>
+          </div>    
+        </div>
+       <div class="card-body" style="font-size: 13px;">
+          <div class="row table-responsive" > 
+            <form>                             
+              <table class="table table-hover table-bordered text-center">
+                <thead class="thead-dark" style="font-size: 10px">
+                <tr>
+                  <th scope="col-*" >Mssv</th>
+                  <th scope="col-*" >Họ tên</th>
+                  <th scope="col-*">Khóa</th>
+                  <th scope="col-*" >Lớp</th>
+                  <th scope="col-*" >Khoa viện</th>
+                  <th scope="col-*">Status</th>
+                  <th scope="col-*">Thao tác</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let student of students | paginate: config ">   
+                  <td>{{student.id}}</td>   
+                  <td>{{student.studentName}}</td>  
+                  <td>{{student.createdYear}} </td>  
+                  <td>{{student.studentClassName}}</td>  
+                  <td>{{student.departmentName}}</td> 
+                  <td>{{student.status}}</td>   
+                  <td>
+                    <div class="btn-group btn-group-toggle">                   
+                        <button class="btn btn-default" 
+                        (click)="EditStudent(student.id);ShowDetail(detailStudent);GetResultLearning(student.id);">Edit</button>  
+                      
+                        <button class="btn btn-danger"(click)="DeleteStudent(student.id)">Delete</button>                 
+                    </div>
+                  </td> 
+                </tr>
+                </tbody>
+              </table>   
+              <pagination-controls (pageChange)="PageAction($event)"></pagination-controls>           
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end list student -->
+
+<!-- detail student -->
+ <ng-template #detailStudent let-modal>
+  <div class="modal-body">
+   
+    <!-- profile -->
+    <div class="main-content">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="title">Edit Profile</h5>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="row">
+                  <div class="col-md-2 pr-1">
+                    <div class="form-group">
+                      <label>Mã sv</label>
+                      <input type="text" class="form-control" disabled="" placeholder="Mã sv" value="{{infor?.id}}">
+                    </div>
+                  </div>
+                  <div class="col-md-5 px-1">
+                    <div class="form-group">
+                      <label>Họ tên</label>
+                      <input type="text" class="form-control" disabled="" placeholder="Họ tên" value="{{infor?.studentName}}">
+                    </div>
+                  </div>
+                  <div class="col-md-5 pl-1">
+                    <div class="form-group">
+                      <label>Email </label>
+                      <input type="email" class="form-control" placeholder="Email" >
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-5 pr-1">
+                      <div class="form-group">
+                        <label>Ngày sinh</label>
+                        <div class="input-group">
+                          <input class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker #dp="ngbDatepicker" value="{{infor?.birthDay}}">
+                          <div class="input-group-append">
+                            <i class="fa fa-calendar close"  (click)="dp.toggle()" ></i>                  
+                          </div>
+                        </div>
+                      </div>               
+                  </div>
+                  <div class="col-md-7 pl-1">
+                    <div class="form-group">
+                      <label>Mật khẩu</label>
+                      <input type="text" class="form-control" placeholder="Mật khẩu" value="{{infor?.password}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Địa chỉ hiện tại</label>
+                      <input type="text" class="form-control" placeholder="Địa chỉ" value="{{infor?.address}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 pr-1">
+                    <div class="form-group">
+                      <label>Quê quán</label>
+                      <input type="text" class="form-control" placeholder="Quê quán" value="{{infor?.birthplace}}">
+                    </div>
+                  </div>
+                  <div class="col-md-4 px-1">
+                    <div class="form-group">
+                      <label>Quốc tịch</label>
+                      <input type="text" class="form-control" placeholder="Đất nước" value="Việt Nam">
+                    </div>
+                  </div>
+                  <div class="col-md-4 px-1">
+                    <div class="form-group">
+                      <label>CMTND/Căn cuớc</label>
+                      <input type="text" class="form-control" placeholder="Đất nước" value="{{infor?.cardId}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-5"></div>               
+                  <div class="col-md-2">
+                      <button class="btn btn-default"> Save</button>
+                  </div>
+                  <div class="col-md-5"></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-user">
+            <div class="image">
+              <img src="./assets/img/cover.jpg" >
+            </div>
+            <div class="card-body">
+              <div class="author">
+                <a href="#">
+                  <img class="avatar border-gray" src="{{infor?.avatar}}" >
+                  <h5 class="title">{{infor?.studentName}}</h5>
+                </a>
+              </div>
+              <p class="description text-center">
+                {{infor?.createdYear}}
+                <br> {{infor?.studentClassName}}
+                <br> {{infor?.departmentName}}
+              </p>
+            </div>
+            <hr>
+            <div class="button-container">
+              <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+                <i class="fa fa-facebook"></i>
+              </button>
+              <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+                <i class="fa fa-twitter"></i>
+              </button>
+              <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+                <i class="fa fa-google-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--end profile -->
+
+<!-- grade table -->
+    <div class="main-content text-center" style="font-size: 12px; width: 100%;">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="title">Bảng điểm</h5>
+            </div>
+            <div class="card-body">        
+              <table class="table table-hover table-bordered">
+                <thead class="thead-dark" style="font-size: 10px;">
+                <tr>
+                  <th scope="col">Học kì</th>
+                  <th scope="col">Mã HP</th>
+                  <th scope="col">Tên HP</th>
+                  <th scope="col">TC</th>
+                  <th scope="col">Lớp học</th>
+                  <th scope="col">Điểm QT</th>
+                  <th scope="col">Điểm thi</th>
+                  <th scope="col">Điểm chữ</th>
+                </tr>
+                </thead>
+                <tbody>
+               <tr *ngFor="let detail of studentDetail ">    
+                  <td>{{detail.semester}} </td>  
+                  <td>{{detail.courseId}} </td>  
+                  <td>{{detail.title}} </td>  
+                  <td>{{detail.credits}} </td>  
+                  <td>{{detail.secId}} </td>  
+                  <td>{{detail.midterm}} </td>  
+                  <td>{{detail.endterm}} </td>  
+                  <td>{{detail.wordScore}} </td>                   
+                </tr>
+                </tbody>
+              </table>  
+              <table class="table table-hover table-bordered">
+                <thead class="thead-dark" style="font-size: 10px;">
+                <tr>
+                  <th scope="col">Học kì</th>
+                  <th scope="col">GPA</th>
+                  <th scope="col">CPA</th>
+                  <th scope="col">TC qua</th>
+                  <th scope="col">TC tích lũy</th>
+                  <th scope="col">TC nợ đk</th>
+                  <th scope="col">TC ĐK</th>
+                  <th scope="col">Trình độ</th>
+                  <th scope="col">Mức cc</th>
+                  <th scope="col">Không tính</th>
+                </tr>
+                </thead>
+                <tbody>
+               <tr *ngFor="let result of resultLearning ">    
+                  <td>{{result.semester}} </td>  
+                  <td>{{result.gpa}} </td>  
+                  <td>{{result.cpa}} </td>  
+                  <td>{{result.tcQua}} </td>  
+                  <td>{{result.tcTichLuy}} </td>  
+                  <td>{{result.tcNoDK}} </td>  
+                  <td>{{result.tcdk}} </td>  
+                  <td>{{result.trinhDo}} </td>      
+                  <td>Mức {{result.mucCC}} </td>  
+                  <td>{{result.tcdk}} </td>               
+                </tr>
+                </tbody>
+              </table>  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end grade table -->
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template> 
+<!-- detail student -->
+
+<!-- add new student -->
+<ng-template #newstudent let-modal>
+ <form [formGroup]="addStudentForm" (ngSubmit)="AddStudent()">
+  <div class="modal-body">
+    <div class="main-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+                <div class="row">
+                  <div class="col-md-2 pr-1">
+                    <div class="form-group">
+                      <label>Mã sv</label>
+                      <input type="text" class="form-control"  placeholder="Mã sv" formControlName="id">
+                    </div>
+                  </div>
+                  <div class="col-md-5 px-1">
+                    <div class="form-group">
+                      <label>Họ tên</label>
+                      <input type="text" class="form-control"  placeholder="Họ tên" formControlName="name">
+                    </div>
+                  </div>
+                  <div class="col-md-5 pl-1">
+                    <div class="form-group">
+                      <label>Email </label>
+                      <input type="email" class="form-control" placeholder="Email" formControlName="email" >
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-5 pr-1">
+                      <div class="form-group">
+                        <label>Ngày sinh</label>
+                        <div class="input-group">
+                          <input class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker #dp="ngbDatepicker" formControlName="birthDay" >
+                          <div class="input-group-append">
+                            <i class="fa fa-calendar close"  (click)="dp.toggle()" ></i>                  
+                          </div>
+                        </div>
+                      </div>               
+                  </div>
+                  <div class="col-md-7 pl-1">
+                    <div class="form-group">
+                      <label>Mật khẩu</label>
+                      <input type="text" class="form-control" placeholder="Mật khẩu" formControlName="password" >
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Avatar</label>
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile" name="filename">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                      </div>
+                      <!-- <div class="custom-file">                     
+                        <input type="file" class="form-control" >
+                        <label class="custom-file-label" >Choose file</label>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Địa chỉ hiện tại</label>
+                      <input type="text" class="form-control" placeholder="Địa chỉ"  formControlName="address">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Quê quán</label>
+                      <input type="text" class="form-control" placeholder="Quê quán" formControlName="birthplace" >
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 ">
+                    <div class="form-group">
+                      <label>Quốc tịch</label>
+                      <input type="text" class="form-control" placeholder="Đất nước" value="Việt Nam">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>CMTND/Căn cuớc</label>
+                      <input type="text" class="form-control" placeholder="CMND/Can Cuoc" formControlName="cardId">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Năm học"  formControlName="createdYear">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <select class="custom-select custom-select-sm" formControlName="departmentName" >
+                      <option value="" disabled selected>Chọn khoa/viện</option>
+                      <option *ngFor="let dept_name of departmentName" [ngValue]="dept_name" >{{dept_name}}</option>
+                    </select>  
+                  </div>
+                  <div class="col-md-4">
+                    <select class="custom-select custom-select-sm" formControlName="studentClassName">
+                      <option value="" disabled selected>Chọn Lớp</option>
+                      <option *ngFor="let class of className" [ngValue]="class">{{class}}</option>             
+                    </select>   
+                  </div>    
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary">
+      <span class="spinner-border spinner-border-sm"></span>
+      Loading..
+    </button>
+    <button type="submit" class="btn btn-danger" >Save</button>
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+ </form>
+</ng-template> 
+<!-- add new student -->
