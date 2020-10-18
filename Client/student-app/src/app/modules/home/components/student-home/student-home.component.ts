@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '../../../../common/services/auth/auth.service';
 import { StudentService } from '../../services/student.service';
 import { StudentInfo } from '../../models/studentinfo';
@@ -14,7 +14,6 @@ import { StudentClassService } from '../../services/student-class.service';
             StudentClassService,]
 })
 export class StudentHomeComponent implements OnInit {
-
   studentId:string
   departmentName:string
   studentClassName:string

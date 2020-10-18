@@ -5726,11 +5726,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
+      "projectUniqueName": "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
       "projectName": "StudentAppServer.Data",
-      "projectPath": "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
+      "projectPath": "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
       "packagesPath": "C:\\Users\\haita\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\obj\\",
+      "outputPath": "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\haita\\AppData\\Roaming\\NuGet\\NuGet.Config",

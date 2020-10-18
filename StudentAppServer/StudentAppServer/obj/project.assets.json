@@ -5660,11 +5660,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer\\StudentAppServer.csproj",
+      "projectUniqueName": "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer\\StudentAppServer.csproj",
       "projectName": "StudentAppServer",
-      "projectPath": "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer\\StudentAppServer.csproj",
+      "projectPath": "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer\\StudentAppServer.csproj",
       "packagesPath": "C:\\Users\\haita\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer\\obj\\",
+      "outputPath": "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\haita\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5680,8 +5680,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {
-              "projectPath": "D:\\Project\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj"
+            "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {
+              "projectPath": "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj"
             }
           }
         }

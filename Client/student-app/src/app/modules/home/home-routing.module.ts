@@ -11,6 +11,7 @@ import { NotificationComponent } from './components/notification/notification.co
 import { StudentHomeComponent } from './components/student-home/student-home.component';
 import { UpdateStudentProfileComponent } from './components/update-student-profile/update-student-profile.component';
 import { ListClassComponent } from './components/list-class/list-class.component';
+import { StudentClassInfoComponent } from './components/student-class-info/student-class-info.component';
 
 const homeRoutes: Routes = [
   {
@@ -27,6 +28,7 @@ const homeRoutes: Routes = [
             children:[
               {  path: '', component: StudentHomeComponent },
               {  path: 'notification', component: NotificationComponent },
+              {  path: 'student-class', component: StudentClassInfoComponent },
               {  path: 'updateStudentProfile', component: UpdateStudentProfileComponent },
              ]
            },     

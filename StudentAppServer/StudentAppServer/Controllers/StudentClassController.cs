@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StudentAppServer.Data.Entities;
 using StudentAppServer.Data.Infrastructure;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace StudentAppServer.Controllers
@@ -25,6 +27,15 @@ namespace StudentAppServer.Controllers
             var student = _unitOfWork.Students.GetById(studentId);
             var studentClassName = _unitOfWork.StudentClasses.GetSingleOrDefault(x => x.Id == student.StudentClassId).Name;
             return studentClassName.ToString();
+        }
+
+        [HttpGet]
+        [Route("GetListStudent/{studentId}")]
+        public  ActionResult<List<Student>>  GetListStudent(string studentId){
+
+            var student =  _unitOfWork.Students.GetById(studentId);
+            var listStudent =  _unitOfWork.Students.Find(x=>x.StudentClassId==student.StudentClassId).ToList();
+            return listStudent ;
         }
     }
 }

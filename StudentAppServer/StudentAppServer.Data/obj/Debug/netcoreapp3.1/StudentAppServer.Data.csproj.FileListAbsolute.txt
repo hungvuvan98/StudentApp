@@ -22,3 +22,15 @@ D:\Project\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreap
 D:\Project\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.dll
 D:\Project\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.pdb
 D:\Project\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.genruntimeconfig.cache
+C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\bin\Debug\netcoreapp3.1\StudentAppServer.Data.deps.json
+C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\bin\Debug\netcoreapp3.1\StudentAppServer.Data.runtimeconfig.json
+C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\bin\Debug\netcoreapp3.1\StudentAppServer.Data.runtimeconfig.dev.json
+C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\bin\Debug\netcoreapp3.1\StudentAppServer.Data.dll
+C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\bin\Debug\netcoreapp3.1\StudentAppServer.Data.pdb
+C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.csprojAssemblyReference.cache
+C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.AssemblyInfoInputs.cache
+C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.AssemblyInfo.cs
+C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.csproj.CoreCompileInputs.cache
+C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.dll
+C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.pdb
+C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.genruntimeconfig.cache
