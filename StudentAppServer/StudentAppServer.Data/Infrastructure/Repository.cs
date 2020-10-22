@@ -19,7 +19,7 @@ namespace StudentAppServer.Data.Infrastructure
         }
 
         public virtual void Add(T entity)
-        => _entities.Add(entity);
+         => _entities.Add(entity);
 
         public virtual void AddRange(IEnumerable<T> entities)
         => _entities.AddRange(entities);

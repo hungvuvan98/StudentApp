@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentAppServer.Data.Entities;
 using StudentAppServer.Data.Infrastructure;
 using System.Collections.Generic;
@@ -29,7 +30,8 @@ namespace StudentAppServer.Controllers
             return studentClassName.ToString();
         }
 
-        [HttpGet]
+        [Authorize(Roles="Student")]
+        [HttpGet]      
         [Route("GetListStudent/{studentId}")]
         public  ActionResult<List<Student>>  GetListStudent(string studentId){
 

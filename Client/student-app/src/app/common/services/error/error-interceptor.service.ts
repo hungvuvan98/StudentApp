@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import {retry, catchError} from 'rxjs/operators'
 import { NotificationService } from '../../notification.service';
 @Injectable()
+
 export class ErrorInterceptorService implements HttpInterceptor {
 
 constructor(private noticeService : NotificationService) { }

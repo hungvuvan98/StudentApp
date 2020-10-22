@@ -24,16 +24,16 @@ const homeRoutes: Routes = [
         children: [
           { path: '', component: HomePageComponent },
           { path: 'login', component: AuthComponent },
-          { path: 'student', component: StudentPageComponent ,
+          { path: 'student', component: StudentPageComponent ,          
             children:[
-              {  path: '', component: StudentHomeComponent },
+              {  path: '', component: StudentHomeComponent},
               {  path: 'notification', component: NotificationComponent },
               {  path: 'student-class', component: StudentClassInfoComponent },
               {  path: 'updateStudentProfile', component: UpdateStudentProfileComponent },
              ]
            },     
-          { path: 'student/course-register', component: CourseRegisterComponent },
-          { path: 'student/class-list', component: ListClassComponent },
+          { path: 'student/course-register', component: CourseRegisterComponent},
+          { path: 'student/class-list', component: ListClassComponent,canActivateChild:[AuthGuardService] },
         ]
       }
     ]

@@ -8,7 +8,7 @@ namespace StudentAppServer.Data.Infrastructure
 {
     public interface IRepository<TEntity> where TEntity : class
     {
-        void Add(TEntity entity);
+        void Add(TEntity entity); 
 
         void AddRange(IEnumerable<TEntity> entities);
 
@@ -33,5 +33,7 @@ namespace StudentAppServer.Data.Infrastructure
         TEntity GetById(string id);
 
         IEnumerable<TEntity> GetAll();
+
+        //IQueryable<TEntity> GetAll();
     }
 }
