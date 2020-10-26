@@ -17,10 +17,14 @@ namespace StudentAppServer.Controllers
 
         private readonly JwtService _jwtService;
 
-        public AccountController(IUnitOfWork unitOfWork, JwtService jwtService)
+        private readonly ICurrentUserService _currentUserService;
+
+        public AccountController(IUnitOfWork unitOfWork, JwtService jwtService,
+                                  ICurrentUserService currentUserService)
         {
             _unitOfWork = unitOfWork;
             _jwtService = jwtService;
+            _currentUserService = currentUserService;
         }
 
         [HttpPost]
@@ -38,5 +42,9 @@ namespace StudentAppServer.Controllers
             var token = _jwtService.GenerateToken(student.Id, student.Name, appGroup.Role);
             return token;
         }
+
+        [HttpGet]
+        public string GetUserId()
+        => _currentUserService.GetId();
     }
 }

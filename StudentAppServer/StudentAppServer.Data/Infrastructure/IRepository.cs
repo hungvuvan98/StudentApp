@@ -8,7 +8,7 @@ namespace StudentAppServer.Data.Infrastructure
 {
     public interface IRepository<TEntity> where TEntity : class
     {
-        void Add(TEntity entity); 
+        void Add(TEntity entity);
 
         void AddRange(IEnumerable<TEntity> entities);
 
@@ -24,7 +24,7 @@ namespace StudentAppServer.Data.Infrastructure
 
         void RemoveRange(IEnumerable<TEntity> entities);
 
-        int Count();
+        Task<int> Count();
 
         IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 

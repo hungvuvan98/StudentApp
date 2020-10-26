@@ -15,7 +15,7 @@ export class CourseClassService {
         return this.http.get<any>(url,{params})
     }
    
-    GetRegisteredClassByStudentId(studentId,semester):Observable<ListClass[]>{
+    GetRegisteredClassByStudentId(semester,studentId?):Observable<ListClass[]>{
         var url= environment.apiUrl + '/Class/GetRegisteredClassByStudentId'
         var params= new HttpParams().set('studentId',studentId)
                                     .set('semester',semester)

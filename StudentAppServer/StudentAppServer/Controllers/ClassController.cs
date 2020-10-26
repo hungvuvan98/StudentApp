@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StudentAppServer.Data.Infrastructure;
 using StudentAppServer.Data.Procedure;
+using StudentAppServer.Infrastructure.Services;
 using StudentAppServer.Models.ListClass;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,9 +12,12 @@ namespace StudentAppServer.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public ClassController(IUnitOfWork unitOfWork)
+        private readonly ICurrentUserService _currentUserService;
+
+        public ClassController(IUnitOfWork unitOfWork, ICurrentUserService currentUserService)
         {
             _unitOfWork = unitOfWork;
+            _currentUserService = currentUserService;
         }
 
         [HttpGet]
@@ -47,6 +51,7 @@ namespace StudentAppServer.Controllers
                 };
                 listdetail.Add(detail);
             }
+
             return listdetail;
         }
 
@@ -54,8 +59,16 @@ namespace StudentAppServer.Controllers
         public async Task<GetListClass> GetClassBySecId(string secId, string semester)
          => await _unitOfWork.GetListClasses.GetListClassBySecId(secId, semester);
 
+        /// <summary>
+        /// Get Registered Class of any student follow semester
+        /// </summary>
+        /// <returns>List registered class of student</returns>
         [HttpGet(nameof(GetRegisteredClassByStudentId))]
-        public async Task<List<GetRegisteredClassByStudentId>> GetRegisteredClassByStudentId(string studentId, string semester)
-        => await _unitOfWork.GetRegisteredClassByStudentIds.GetRegisteredClassByStudentId(studentId, semester);
+        public async Task<List<GetRegisteredClassByStudentId>> GetRegisteredClassByStudentId(string semester, string studentId = null)
+        {
+            if (studentId == null) // underfined
+                studentId = _currentUserService.GetId();
+            return await _unitOfWork.GetRegisteredClassByStudentIds.GetRegisteredClassByStudentId(studentId, semester);
+        }
     }
 }

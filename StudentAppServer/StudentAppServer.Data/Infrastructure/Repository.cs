@@ -42,8 +42,8 @@ namespace StudentAppServer.Data.Infrastructure
         public virtual void RemoveRange(IEnumerable<T> entities)
         => _entities.RemoveRange(entities);
 
-        public virtual int Count()
-        => _entities.Count();
+        public async Task<int> Count()
+        => await _entities.CountAsync();
 
         public virtual IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
         => _entities.Where(predicate);

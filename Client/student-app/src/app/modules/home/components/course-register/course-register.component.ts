@@ -49,7 +49,7 @@ export class CourseRegisterComponent implements OnInit {
     
     this.mainService.getNewestSemester().subscribe(res=> {
       this.semester=res
-      this.GetRegisteredClass(this.studentId,this.semester)
+      this.GetRegisteredClass(this.semester,this.studentId)   
     })
     }   
   }
@@ -75,7 +75,7 @@ export class CourseRegisterComponent implements OnInit {
           this.noticeService.show('info',`Đã thêm lớp ${res.secId} - ${res.title} vào hàng chờ đăng ký`)       
         }
         else{
-          this.noticeService.show('warning',`Lớp ${res.secId} - ${res.title} đã tồn tại`) 
+          this.noticeService.show('warning',`Lớp ${res.secId} - ${res.title} (${res.courseId}) đã tồn tại`) 
         }      
         this.TotalCredit(this.listRegisteredClass)
     })
@@ -93,12 +93,12 @@ export class CourseRegisterComponent implements OnInit {
          this.noticeService.show('success',`Có ${res[0]} lớp được thêm mới `)
       if(res[1]!=0)
          this.noticeService.show('error',`Có ${res[1]} lớp bị xóa `)
-      this.GetRegisteredClass(this.studentId,this.semester);
+      this.GetRegisteredClass(this.semester,this.studentId);
     })
   }
 
-  GetRegisteredClass(studentId,semester){
-    this.classService.GetRegisteredClassByStudentId(studentId,semester).subscribe(res=>{
+  GetRegisteredClass(semester,studentId){
+    this.classService.GetRegisteredClassByStudentId(semester,studentId).subscribe(res=>{
         this.listRegisteredClass=res
         this.TotalCredit(this.listRegisteredClass)
     })
