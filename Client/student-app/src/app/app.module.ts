@@ -1,33 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthService } from './common/services/auth/auth.service';
-import { AuthGuardService } from './common/services/auth/auth-guard.service';
+import { GuestModule } from './client/guest/guest.module';
+import { StudentModule } from './client/student/student.module';
+import { InstructorModule } from './client/instructor/instructor.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { TokenInterceptorService } from './common/services/auth/token-interceptor.service';
-import { NotificationService } from './common/notification.service';
-import { ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from './shared/services/auth/auth.service';
+import { AuthGuardService } from './shared/services/auth/auth-guard.service';
+import { TokenInterceptorService } from './shared/services/auth/token-interceptor.service';
+import { ErrorInterceptorService } from './shared/services/error/error-interceptor.service';
+import { NotificationService } from './shared/services/Notification/Notification.service';
+import { MainService } from './shared/services/main.service';
 import { NotifierModule } from 'angular-notifier';
-import{customNotifierOptions} from './configuration/notifier-config.ts'
-import { ErrorInterceptorService } from './common/services/error/error-interceptor.service';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { MainService } from './common/services/main.service';
-
+import { customNotifierOptions } from './shared/services/Notification/notification-config';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination'; 
 
 @NgModule({
   declarations: [
-    AppComponent 
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    //ReactiveFormsModule,
     HttpClientModule,
+    AppRoutingModule,
     NgbModule,
+   // NgxPaginationModule,
     NotifierModule.withConfig(customNotifierOptions),
-    NgxPaginationModule
+    GuestModule,
+    StudentModule,
+    InstructorModule
   ],
   providers: [
     AuthService,
@@ -37,11 +41,11 @@ import { MainService } from './common/services/main.service';
       useClass:TokenInterceptorService,
       multi:true
     },
-    {
-      provide:HTTP_INTERCEPTORS,
-      useClass:ErrorInterceptorService,
-      multi:true
-    },
+    // {
+    //   provide:HTTP_INTERCEPTORS,
+    //   useClass:ErrorInterceptorService,
+    //   multi:true
+    // },
     NotificationService,
     MainService
   ],

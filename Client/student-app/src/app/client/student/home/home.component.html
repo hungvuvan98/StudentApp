@@ -1,0 +1,86 @@
+<app-sidebar></app-sidebar>
+
+<div style="padding-left: 260px;">
+  <div class="main-header">THONG TIN CA NHAN</div>
+  <div class="pl-5">
+   <span>Thong tin sinh vien</span>
+   <div class="row">
+     <img src="{{student?.avatar}}" width="170px" height="170px" class="img-thumbnail">
+     <div class="pl-5" > 
+       <ul class="list-group mx-auto" >
+         <li class="list-group-item pt-2" style="border:none;">
+            <span style="font-weight:bold">MSSV  :</span>
+            {{student?.id}}
+         </li>
+         <li class="list-group-item pt-2" style="border:none">
+           <span style="font-weight:bold">Họ và tên  :</span>  
+            {{student?.name|uppercase}}
+         </li>
+         <li class="list-group-item pt-2" style="border:none">
+           <span style="font-weight:bold">Năm vào trường  :</span>
+            {{student?.createdYear}}
+         </li>
+         <li class="list-group-item pt-2" style="border:none">
+           <span style="font-weight:bold">Chương trình  : </span>
+         </li>             
+         <li class="list-group-item pt-2" style="border:none">
+           <span style="font-weight:bold">Tình trạng học tập  :</span> 
+           {{student?.status}}
+         </li>
+       </ul>             
+     </div>
+     <div class="pl-5">
+       <ul class="list-group">
+         <li class="list-group-item pt-2" style="border:none">
+           <span style="font-weight:bold">Giới tính  :</span>
+         </li>
+         <li class="list-group-item pt-2" style="border:none">
+           <span style="font-weight:bold">Lớp  :</span>{{studentClassName}}
+         </li>
+         <li class="list-group-item pt-2" style="border:none">
+           <span style="font-weight:bold">Khoa/Viện quản lý  :</span> {{departmentName}}
+         </li>
+         <li class="list-group-item pt-2" style="border:none">
+           <span style="font-weight:bold">Email  :</span>
+            {{student?.email}}
+         </li>   
+       </ul>
+                 
+     </div>
+   </div>
+   <hr>
+   <span>Kết quả học tập</span>
+   <div class="row pt-4">
+     <div class="pl-5">
+       <p>Tổng kết học kỳ : {{resultLeaning?.semester}}</p>
+       <p>Trung bình tích lũy : {{resultLeaning?.cpa}}</p>
+       <p>Số TC nợ đăng ký : {{resultLeaning?.tcNoDK}}</p>
+     </div>
+     <div class="pl-5">
+       <p>Số TC tích lũy :{{resultLeaning?.tcdk}}</p>
+       <p>Trình độ sinh viên : {{resultLeaning?.trinhDo}}</p>
+       <p>Mức cảnh báo :  Mức {{resultLeaning?.mucCC}}</p>
+     </div>
+   </div>
+   <hr>
+  <span>Thong Tin Ca Nhan</span>
+   <div class="row">
+     <div class="pl-5">   
+       <p>Ngay sinh :{{student?.birthDay|date}}</p>
+       <p>Email: {{student?.email}}</p>
+       <p>Dia chi :{{student?.address}}</p>
+       <p>Que quan :{{student?.birthplace}}</p>
+     </div>
+     <div class="pl-5">
+       <p>CMND :{{student?.cardId}}</p>
+       <p>Nam vao truong :{{student?.createdYear}}</p>
+       <p>Email:{{student?.email}}</p>
+       <p>SDT :</p>
+     </div>
+   </div>
+  </div>
+</div>
+
+ 
+
+

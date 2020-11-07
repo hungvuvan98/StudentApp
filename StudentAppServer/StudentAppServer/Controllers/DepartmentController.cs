@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentAppServer.Data.Infrastructure;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace StudentAppServer.Controllers
 {
+    [Authorize]
     public class DepartmentController : ApiControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -27,8 +29,10 @@ namespace StudentAppServer.Controllers
             return listDeptName;
         }
 
-        [HttpGet(nameof(GetById))]
-        public string GetById(string id)
-         => _unitOfWork.Departments.GetById(id).Name;
+        [HttpGet("getbyid/{id}")]
+        public ActionResult<string> GetById(string id)
+        {
+            return Ok(_unitOfWork.Departments.GetById(id).Name);
+        }
     }
 }

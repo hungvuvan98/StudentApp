@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {}
+    "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {
+    "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
+        "projectUniqueName": "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
         "projectName": "StudentAppServer.Data",
-        "projectPath": "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
+        "projectPath": "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
         "packagesPath": "C:\\Users\\haita\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\haita\\Desktop\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\obj\\",
+        "outputPath": "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\haita\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

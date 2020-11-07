@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StudentAppServer.Data.Infrastructure;
@@ -44,7 +45,12 @@ namespace StudentAppServer.Controllers
         }
 
         [HttpGet]
+        [Authorize]
+        [Route(nameof(GetUserId))]
         public string GetUserId()
-        => _currentUserService.GetId();
+        {
+            var id = _currentUserService.GetId();
+            return id;
+        }
     }
 }

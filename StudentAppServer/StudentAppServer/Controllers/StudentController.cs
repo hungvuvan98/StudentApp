@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace StudentAppServer.Controllers
 {
+    [Authorize]
     public class StudentController : ApiControllerBase
     {
         private readonly ICurrentUserService _currentUserService;

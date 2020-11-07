@@ -1,0 +1,18 @@
+<app-sidebar></app-sidebar>
+<div style="padding-left: 260px;">
+    <div class="main-header mx-auto d-block">
+        <i class="fas fa-envelope-open-text text-danger"></i>
+        <span>HỘP THƯ BÁO</span>
+    </div>
+    <div class="container">
+        <div *ngFor="let annoucement of announcements">
+            <div class="announcement">
+                 <p class="title">{{annoucement.title}}</p>
+                 <span>{{annoucement.createdDate|date}}</span>
+                 <div>{{annoucement.message}}</div>
+            </div>      
+        </div>
+    </div>
+</div>
+ 
+

@@ -1,0 +1,31 @@
+<app-sidebar></app-sidebar>
+<div style="padding-left: 260px;">
+
+    <div class="container-fluid">
+        <div class="title">Danh sach</div>   
+            <div class="row" > 
+              <form>                             
+                <table class="table table-hover table-bordered text-center">
+                  <thead class="thead-light">
+                  <tr>
+                    <th scope="col-*" >Mssv</th>
+                    <th scope="col-*" >Họ tên</th>
+                    <th scope="col-*">Ngay sinh</th>
+                    <th scope="col-*" >Khoa viện</th>
+                    <th scope="col-*">Trang thai</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let student of students">   
+                    <td>{{student.id}}</td>   
+                    <td>{{student.name}}</td>  
+                    <td>{{student.birthDay|date}} </td>  
+                    <td>{{student.departmentId}}</td>  
+                    <td>{{student.status}}</td>   
+                  </tr>
+                  </tbody>
+                </table>         
+              </form>
+            </div>    
+    </div>
+</div>

@@ -34,3 +34,15 @@ C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Deb
 C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.dll
 C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.pdb
 C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.genruntimeconfig.cache
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.dll
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.pdb
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer.Data\bin\Debug\netcoreapp3.1\StudentAppServer.Data.deps.json
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer.Data\bin\Debug\netcoreapp3.1\StudentAppServer.Data.runtimeconfig.json
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer.Data\bin\Debug\netcoreapp3.1\StudentAppServer.Data.runtimeconfig.dev.json
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer.Data\bin\Debug\netcoreapp3.1\StudentAppServer.Data.dll
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer.Data\bin\Debug\netcoreapp3.1\StudentAppServer.Data.pdb
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.csprojAssemblyReference.cache
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.AssemblyInfoInputs.cache
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.AssemblyInfo.cs
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.csproj.CoreCompileInputs.cache
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer.Data\obj\Debug\netcoreapp3.1\StudentAppServer.Data.genruntimeconfig.cache
