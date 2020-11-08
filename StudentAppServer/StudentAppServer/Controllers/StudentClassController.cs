@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace StudentAppServer.Controllers
 {
-    //[Authorize]
     public class StudentClassController : ApiControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;

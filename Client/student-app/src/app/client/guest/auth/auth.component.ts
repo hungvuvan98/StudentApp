@@ -28,11 +28,11 @@ export class AuthComponent {
       })
     }
     else if(this.isAdmin===true){
-      // this.authService.login(this.loginForm.value).subscribe(data=>{
-      //   this.authService.saveToken(data['token']);
-      //   this.route.navigate(['admin']);    
-      // });
-      console.log('true')
+      this.authService.login(this.loginForm.value).subscribe(data=>{
+        this.authService.saveToken(data['token']);
+        this.route.navigate(['admin']);    
+      });
+     // console.log('true')
     }
   }
 

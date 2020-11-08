@@ -6,6 +6,8 @@ import { ClassListComponent } from './class-list/class-list.component';
 import { CourseRegisterComponent } from './course-register/course-register.component';
 import { HomeComponent } from './home/home.component';
 import { StudentClassComponent } from './student-class/student-class.component';
+import { TableScoreComponent } from './table-score/table-score.component';
+import { TableToeicComponent } from './table-toeic/table-toeic.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 const routes: Routes = [
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'update-profile', component: UpdateProfileComponent },
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'student-class', component: StudentClassComponent },
+  { path: 'table-toeic', component: TableToeicComponent },
+  { path: 'table-score', component: TableScoreComponent },
 ];
 
 @NgModule({

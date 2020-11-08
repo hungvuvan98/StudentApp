@@ -27,9 +27,10 @@ export class SidebarComponent implements OnInit {
     this.authService.logout()
   }
 
-  show1= true
-  show2=true
-
+  show1 = true
+  show2 = true
+  show3 = true
+  
   drop(data){
     if(data=='1'){
       if(this.show1==false) this.show1=true
@@ -38,6 +39,10 @@ export class SidebarComponent implements OnInit {
     if(data=='2'){
       if(this.show2==false) this.show2=true
       else this.show2=false
+    }
+    if(data=='3'){
+      if(this.show3==false) this.show3=true
+      else this.show3=false
     }
     
   }

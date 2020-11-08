@@ -25,13 +25,13 @@ export class CourseRegisterComponent implements OnInit {
   semester:string
   constructor(private authService:AuthService, private studentService: StudentService,
               private mainService:MainService, private noticeService: NotificationService,
-              private courseService:CourseRegisterService, private route: Router) {}
+              private courseService:CourseRegisterService) {}
 
   ngOnInit(): void {
 
     this.authService.getUserId().subscribe(res=>{
       this.studentId=res
-      this.GetLevel(this.studentId)
+      this.GetLevel()
       this.studentService.GetInfo(this.studentId).subscribe(res=>{
         this.studentName=res['name']       
       })
@@ -44,26 +44,28 @@ export class CourseRegisterComponent implements OnInit {
 
   }
 
-  GetLevel(studentId){
-    this.studentService.GetLevel(studentId).subscribe(res=>{
-      if(res==0|| res==-1) this.maxRegister=24
-      else if(res==1) this.maxRegister=18
-      else if(res==2) this.maxRegister=14
-      else this.maxRegister=0
+  GetLevel(){
+    this.studentService.GetLevel().subscribe(res=>{
+      this.maxRegister=res
     })
   }
 
-  RegisterClassTemp(classId){
-    this.courseService.RegisterClassTemp(classId,this.semester).subscribe(res=>{      
-        if(this.listRegisteredClass.find(x=>x.secId==res.secId)==undefined){
-          this.listRegisteredClass.push(res)
-          this.noticeService.show('info',`Đã thêm lớp ${res.secId} - ${res.title} vào hàng chờ đăng ký`)       
-        }
-        else{
-          this.noticeService.show('warning',`Lớp ${res.secId} - ${res.title} (${res.courseId}) đã tồn tại`) 
-        }      
-        this.TotalCredit(this.listRegisteredClass)
-    })
+  RegisterClassTemp(classId) {
+    if (classId != '') {
+        this.courseService.RegisterClassTemp(classId,this.semester).subscribe(res=>{      
+          if(this.listRegisteredClass.find(x=>x.secId==res.secId)==undefined){
+            this.listRegisteredClass.push(res)
+            this.noticeService.show('info',`Đã thêm lớp ${res.secId} - ${res.title} vào hàng chờ đăng ký`)       
+          }
+          else{
+            this.noticeService.show('warning',`Lớp ${res.secId} - ${res.title} (${res.courseId}) đã tồn tại`) 
+          } 
+         // if(res.error.status==404) this.noticeService.show("warning",` Không tìm thấy lớp ${classId} `)
+          this.TotalCredit(this.listRegisteredClass)
+          })
+    }
+    else this.noticeService.show("warning","Nhập mã lớp")
+    
   }
   
   TotalCredit(data:any[]){

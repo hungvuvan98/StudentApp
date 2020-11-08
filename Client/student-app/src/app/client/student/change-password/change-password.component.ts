@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../shared/services/auth/auth.service';
+import { NotificationService } from '../../../shared/services/Notification/Notification.service';
 
 @Component({
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.css']
 })
-export class ChangePasswordComponent implements OnInit {
+export class ChangePasswordComponent  {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  changePasswordForm: FormGroup
+  constructor(private fb: FormBuilder,private auth:AuthService,private noticeService:NotificationService) { 
+    this.changePasswordForm = this.fb.group({
+      oldPassword: ['', Validators.required],
+      newPassword:['',Validators.required]
+    })
   }
+  changPassword() {
+    this.auth.changPassword(this.changePasswordForm.value).subscribe(res => {
+      console.log(res)
+    })
+  }
+  get oldPass() { return this.changePasswordForm.get('oldPassword')}
 
+  get newPass() { return this.changePasswordForm.get('newPassword')}  
 }

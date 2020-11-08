@@ -220,8 +220,8 @@ C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\ne
 C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\netcoreapp3.1\StudentAppServer.dll
 C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\netcoreapp3.1\StudentAppServer.pdb
 C:\Users\haita\Desktop\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\netcoreapp3.1\StudentAppServer.genruntimeconfig.cache
-D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\netcoreapp3.1\StudentAppServer.dll
-D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\netcoreapp3.1\StudentAppServer.pdb
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\appsettings.json
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -271,9 +271,7 @@ D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreap
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
-D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
-D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
@@ -291,4 +289,6 @@ D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\netcoreap
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\netcoreapp3.1\StudentAppServer.csproj.CopyComplete
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\netcoreapp3.1\staticwebassets\StudentAppServer.StaticWebAssets.Manifest.cache
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\netcoreapp3.1\staticwebassets\StudentAppServer.StaticWebAssets.xml
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\netcoreapp3.1\StudentAppServer.dll
+D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\netcoreapp3.1\StudentAppServer.pdb
 D:\destop\doan3\StudentApp\StudentAppServer\StudentAppServer\obj\Debug\netcoreapp3.1\StudentAppServer.genruntimeconfig.cache

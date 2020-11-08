@@ -42,3 +42,11 @@
     height: 70px;
     text-align: right;
 }
+
+.add{   
+    height: 35px;
+    width: 150px;
+    border: none; /* <-- This thing here */
+    border:solid 1px #ccc;
+    border-radius: 12px;
+  }

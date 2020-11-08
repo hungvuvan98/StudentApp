@@ -1,4 +1,6 @@
-﻿namespace StudentAppServer.Data.Entities
+﻿using StudentAppServer.Data.Base;
+
+namespace StudentAppServer.Data.Entities
 {
     public class Take
     {
@@ -9,6 +11,8 @@
         public float? Endterm { get; set; }
 
         public string WordScore { get; set; }
+
+        public Status Status { get; set; }
 
         public Student Student { get; set; }
 

@@ -6,7 +6,6 @@ using System.Linq;
 
 namespace StudentAppServer.Controllers
 {
-    [Authorize]
     public class DepartmentController : ApiControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;

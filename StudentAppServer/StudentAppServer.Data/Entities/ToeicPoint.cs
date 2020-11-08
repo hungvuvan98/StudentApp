@@ -6,10 +6,6 @@ namespace StudentAppServer.Data.Entities
     {
         public string Id { get; set; }
 
-        public string Semester { get; set; }
-
-        public string year { get; set; }
-
         public string Description { get; set; }
 
         public int HearPoint { get; set; }

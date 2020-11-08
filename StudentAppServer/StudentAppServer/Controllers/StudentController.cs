@@ -14,7 +14,6 @@ using System.Threading.Tasks;
 
 namespace StudentAppServer.Controllers
 {
-    [Authorize]
     public class StudentController : ApiControllerBase
     {
         private readonly ICurrentUserService _currentUserService;
@@ -159,7 +158,8 @@ namespace StudentAppServer.Controllers
                 var take = new Take()
                 {
                     Id = listModel.ElementAt(0).Id,
-                    SecId = item.SecId
+                    SecId = item.SecId,
+                    Status=Status.Locked
                 };
                 bool checkAdd = listClass.Any(x => x.SecId == take.SecId);
                 if (!checkAdd)

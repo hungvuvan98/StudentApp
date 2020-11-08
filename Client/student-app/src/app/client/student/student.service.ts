@@ -37,10 +37,9 @@ export class StudentService {
     return this.http.get<any[]>(url)
   }
 
-  GetLevel(studentId):Observable<number>{
-    var url=environment.apiUrl +'/warning/GetLevel'
-    const params=new HttpParams().set('studentId',studentId)
-    return this.http.get<number>(url,{params})
+  GetLevel():Observable<number>{
+    var url=environment.apiUrl +'/toeic/CheckConditionToRegister'
+    return this.http.get<number>(url)
 }
   
 }

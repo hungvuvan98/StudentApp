@@ -56,8 +56,14 @@ namespace StudentAppServer.Controllers
         }
 
         [HttpGet(nameof(GetClassBySecId))]
-        public async Task<GetListClass> GetClassBySecId(string secId, string semester)
-         => await _unitOfWork.GetListClasses.GetListClassBySecId(secId, semester);
+        public async Task<ActionResult<GetListClass>> GetClassBySecId(string secId, string semester)
+        {
+          var result= await _unitOfWork.GetListClasses.GetListClassBySecId(secId, semester);
+            if (result == null)
+                return NotFound();
+          return result;
+        }
+        
 
         /// <summary>
         /// Get Registered Class of any student follow semester

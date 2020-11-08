@@ -23,12 +23,12 @@
                </div>
                <div class="container-fluid">           
                      <div class="form-group form-inline pt-2">
-                        <input class="form-control" #classId placeholder="Ma Lop" />
-                        <button type="button" class="btn ml-2 p-2" (click)="RegisterClassTemp(classId.value)">Đăng ký lớp</button>
+                        <input class="form-control add" #classId placeholder="Ma Lop" />
+                        <button type="button"  class="btn ml-3" (click)="RegisterClassTemp(classId.value)">Đăng ký lớp</button>
                      </div>    
                      <div class="row">
                          <table class="table table-bordered">
-                            <thead class="thead-light text-center" style="font-size: 10px;">
+                            <thead class="thead-light text-center">
                               <tr>
                                 <th>Mã lớp</th>
                                 <th>Tên lớp</th>
@@ -59,7 +59,7 @@
                           </table>
                       <div class="tfoot">
                         <div class="pr-5 pb-2" style="border-bottom: 1px solid #dee2e6;">Tổng số TC đăng ký = {{totalCredit}}</div>
-                        <button type="button" class="btn p-2 mt-0">Xóa các lớp đã chọn</button>
+                        
                       </div>
                     </div>       
   
@@ -67,7 +67,7 @@
   
                     <div class="row">
                         <table class="table table-bordered">
-                           <thead class="thead-light text-center" style="font-size: 10px;">
+                           <thead class="thead-light text-center">
                              <tr>
                                <th>Thứ</th>
                                <th>Thời gian</th>

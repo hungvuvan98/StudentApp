@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudentAppServer.Data;
 
 namespace StudentAppServer.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201108052322_addfield_status_of_Take")]
+    partial class addfield_status_of_Take
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -692,8 +694,14 @@ namespace StudentAppServer.Data.Migrations
                     b.Property<int>("ReadPoint")
                         .HasColumnType("int");
 
+                    b.Property<string>("Semester")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("TotalPoint")
                         .HasColumnType("int");
+
+                    b.Property<string>("year")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id", "StudentId")
                         .HasName("PK__toeicpoint");

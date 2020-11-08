@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StudentAppServer.Data.Entities;
 using StudentAppServer.Data.Infrastructure;
 using StudentAppServer.Infrastructure.Services;
 using StudentAppServer.Models;
@@ -29,6 +30,7 @@ namespace StudentAppServer.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [Route(nameof(Login))]
         public ActionResult<LoginResponseModel> Login(LoginModel model)
         {
@@ -44,8 +46,22 @@ namespace StudentAppServer.Controllers
             return token;
         }
 
+        [HttpPost]
+        [Route(nameof(ChangePassword))]
+        public async Task<ActionResult<int>> ChangePassword(ChangePasswordModel model)
+        {
+            var currentId = _currentUserService.GetId();
+            var student = _unitOfWork.Students.Find(x => x.Id == currentId && x.Password == model.OldPassword).FirstOrDefault();
+           
+            if (student == null) return NotFound("Sai mat khau");
+
+            student.Password = model.NewPassword;
+            _unitOfWork.Students.Update(student);
+            await _unitOfWork.SaveChanges();
+            return 1;
+        }
+
         [HttpGet]
-        [Authorize]
         [Route(nameof(GetUserId))]
         public string GetUserId()
         {
