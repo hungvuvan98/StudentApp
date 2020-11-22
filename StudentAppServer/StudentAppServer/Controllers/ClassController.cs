@@ -4,6 +4,7 @@ using StudentAppServer.Data.Procedure;
 using StudentAppServer.Infrastructure.Services;
 using StudentAppServer.Models.ListClass;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace StudentAppServer.Controllers
@@ -60,7 +61,7 @@ namespace StudentAppServer.Controllers
         {
           var result= await _unitOfWork.GetListClasses.GetListClassBySecId(secId, semester);
             if (result == null)
-                return NotFound();
+                return NotFound($"Không tồn tại mã lớp {secId} trong học kì {semester}");
           return result;
         }
         
@@ -75,6 +76,21 @@ namespace StudentAppServer.Controllers
             if (studentId == null) // underfined
                 studentId = _currentUserService.GetId();
             return await _unitOfWork.GetRegisteredClassByStudentIds.GetRegisteredClassByStudentId(studentId, semester);
+        }
+
+        [HttpPost]
+        [Route(nameof(CheckDuplicateTime))]
+        public ActionResult<string> CheckDuplicateTime(List<GetRegisteredClassByStudentId> listClass)
+        {
+            var section = _unitOfWork.Sections.Find(x => x.SecId == listClass.Last().SecId).FirstOrDefault();
+            listClass.Remove(listClass.Last());
+            foreach(var item in listClass)
+            {
+                var temp = _unitOfWork.Sections.Find(x => x.SecId == item.SecId).FirstOrDefault();
+                if (section.TimeSlotId == temp.TimeSlotId && section.Day == temp.Day)
+                    return temp.SecId;
+            }
+            return "1";
         }
     }
 }

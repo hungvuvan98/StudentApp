@@ -102,8 +102,12 @@ namespace StudentAppServer.Infrastructure.Extensions
 
         public static void AddApiControllers(this IServiceCollection services)
             => services
-                .AddControllers(options => options
-                    .Filters
-                    .Add<ModelOrNotFoundActionFilter>());
+                .AddControllers(options =>
+                {
+                    options.Filters
+                           .Add<ModelOrNotFoundActionFilter>();
+                    options.RespectBrowserAcceptHeader = true;
+
+                });
     }
 }

@@ -10,5 +10,9 @@ namespace StudentAppServer.Models
         public string Id { get; set; }
 
         public string Password { get; set; }
+
+        //public string UserEnteredCaptchaCode { get; set; }
+
+        //public string CaptchaId { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BotDetect.Web;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -68,5 +69,42 @@ namespace StudentAppServer.Controllers
             var id = _currentUserService.GetId();
             return id;
         }
+
+        // the captcha validation function
+        //private bool IsCaptchaCorrect(string userEnteredCaptchaCode, string captchaId)
+        //{
+        //    // create a captcha instance to be used for the captcha validation
+        //    SimpleCaptcha captcha = new SimpleCaptcha();
+        //    // execute the captcha validation
+        //    return captcha.Validate(userEnteredCaptchaCode, captchaId);
+        //}
+
+        //[HttpPost]
+        //[Route(nameof(Post))]
+        //[AllowAnonymous]
+
+        //public ActionResult<LoginResponseModel> Post([FromBody] LoginModel model)
+        //{
+        //    string userEnteredCaptchaCode = model.UserEnteredCaptchaCode;
+        //    string captchaId = model.CaptchaId;
+            
+        //    if (!IsCaptchaCorrect(userEnteredCaptchaCode, captchaId))
+        //    {
+        //        return BadRequest("Sai ma capcha");
+        //    }
+
+        //    var student = _unitOfWork.Students
+        //                              .GetSingleOrDefault(x => x.Id == model.Id
+        //                                                  && x.Password == model.Password);
+        //    if (student == null)
+        //    {
+        //        return NotFound("Account does not exist! ");
+        //    }
+        //    var appGroup = _unitOfWork.AppGroups.GetById(student.GroupId);
+        //    var token = _jwtService.GenerateToken(student.Id, student.Name, appGroup.Role);
+        //    return token;
+           
+        //}
+
     }
 }

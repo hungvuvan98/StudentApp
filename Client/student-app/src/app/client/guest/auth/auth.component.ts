@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../shared/services/auth/auth.service';
@@ -8,18 +8,27 @@ import { AuthService } from '../../../shared/services/auth/auth.service';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
 })
-export class AuthComponent {
+export class AuthComponent implements OnInit {
 
   loginForm: FormGroup
   isAdmin = false
-
-  constructor(private fb: FormBuilder, private authService: AuthService, private route: Router){
+  siteKey:string
+  constructor(private fb: FormBuilder, private authService: AuthService, private route: Router) {
+    this.siteKey = '6Ldhk-cZAAAAADlY8rhAjyjSUPOY2fPfCmkkZkG3';
     this.loginForm = this.fb.group({
       id: ['',Validators.required],
-      password: ['',Validators.required]
+      password: ['', Validators.required],
+      recaptcha: ['',Validators.required] 
     });
   }
 
+  ngOnInit() {
+   
+  }
+
+  handleSuccess(data) {
+    console.log(data);
+  }
   login(){
     if(this.isAdmin===false){
       this.authService.login(this.loginForm.value).subscribe(data=>{

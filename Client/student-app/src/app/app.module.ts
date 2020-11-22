@@ -16,7 +16,6 @@ import { MainService } from './shared/services/main.service';
 import { NotifierModule } from 'angular-notifier';
 import { customNotifierOptions } from './shared/services/Notification/notification-config';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgxPaginationModule } from 'ngx-pagination'; 
 
 @NgModule({
   declarations: [
@@ -41,11 +40,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
       useClass:TokenInterceptorService,
       multi:true
     },
-    // {
-    //   provide:HTTP_INTERCEPTORS,
-    //   useClass:ErrorInterceptorService,
-    //   multi:true
-    // },
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:ErrorInterceptorService,
+      multi:true
+    },
     NotificationService,
     MainService
   ],

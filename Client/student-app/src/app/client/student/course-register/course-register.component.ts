@@ -29,11 +29,14 @@ export class CourseRegisterComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.authService.getUserId().subscribe(res=>{
-      this.studentId=res
+    this.authService.getUserId().subscribe(res1=>{
+      this.studentId=res1
       this.GetLevel()
-      this.studentService.GetInfo(this.studentId).subscribe(res=>{
-        this.studentName=res['name']       
+      this.studentService.GetInfo(this.studentId).subscribe(res2=>{
+           this.studentName=res2['name']       
+      })
+      this.courseService.GetClassNameByStudent(this.studentId).subscribe(res3 => {
+          this.className=res3
       })
     })
    
@@ -51,18 +54,27 @@ export class CourseRegisterComponent implements OnInit {
   }
 
   RegisterClassTemp(classId) {
-    if (classId != '') {
-        this.courseService.RegisterClassTemp(classId,this.semester).subscribe(res=>{      
-          if(this.listRegisteredClass.find(x=>x.secId==res.secId)==undefined){
-            this.listRegisteredClass.push(res)
-            this.noticeService.show('info',`Đã thêm lớp ${res.secId} - ${res.title} vào hàng chờ đăng ký`)       
-          }
-          else{
-            this.noticeService.show('warning',`Lớp ${res.secId} - ${res.title} (${res.courseId}) đã tồn tại`) 
-          } 
-         // if(res.error.status==404) this.noticeService.show("warning",` Không tìm thấy lớp ${classId} `)
-          this.TotalCredit(this.listRegisteredClass)
+    if (classId) {
+      this.courseService.RegisterClassTemp(classId, this.semester).subscribe(response => {    
+
+        if (this.listRegisteredClass.find(x => x.secId == response.secId) == undefined) {
+          this.listRegisteredClass.push(response)
+          this.courseService.CheckDuplicateTime(this.listRegisteredClass).subscribe(data => {
+            if (data == '1') {    
+              this.noticeService.show('info', `Đã thêm lớp ${response.secId} - ${response.title} vào hàng chờ đăng ký`)
+            }
+            else
+            {
+              this.listRegisteredClass.pop();
+              this.noticeService.show('error',`Bị trùng thời khóa biểu với ${data}`) 
+            }    
           })
+        }
+        else{
+            this.noticeService.show('warning',`Lớp ${response.secId} - ${response.title} (${response.courseId}) đã tồn tại`) 
+        }       
+        this.TotalCredit(this.listRegisteredClass)
+      })
     }
     else this.noticeService.show("warning","Nhập mã lớp")
     
@@ -75,12 +87,16 @@ export class CourseRegisterComponent implements OnInit {
     }
   }
   SendRegister(data){
-    this.courseService.SendRegister(data).subscribe(res=>{
-      if(res[0]!=0)
-         this.noticeService.show('success',`Có ${res[0]} lớp được thêm mới `)
-      if(res[1]!=0)
-         this.noticeService.show('error',`Có ${res[1]} lớp bị xóa `)
-      this.GetRegisteredClass(this.semester,this.studentId);
+    this.courseService.SendRegister(data).subscribe(res => {
+      
+      if (res[0] == -1) this.noticeService.show('warning', 'Tất cả các lớp đã bị xóa')
+      else {
+          if(res[0]!=0)
+            this.noticeService.show('success',`Có ${res[0]} lớp được thêm mới `)
+          if(res[1]!=0)
+            this.noticeService.show('error',`Có ${res[1]} lớp bị xóa `)
+          this.GetRegisteredClass(this.semester,this.studentId);
+      }     
     })
   }
 
@@ -89,11 +105,12 @@ export class CourseRegisterComponent implements OnInit {
         this.listRegisteredClass=res
         this.TotalCredit(this.listRegisteredClass)
     })
+    // this.ngOnInit();
   }
 
   isAll(){
     this.listRegisteredClass.length=0
-    console.log(this.listRegisteredClass)
+   
   }
  listemp: Array<any>
   isCheckedById(data:string){

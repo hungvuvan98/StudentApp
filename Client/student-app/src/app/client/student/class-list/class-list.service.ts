@@ -9,7 +9,7 @@ export class ClassListService {
 constructor(private http:HttpClient) { }
 GetAll(semester:string):Observable<any[]>{
     var url= environment.apiUrl + '/class/getall'
-    var params= new HttpParams().set('semester',semester)
+    var params = new HttpParams().set('semester', semester)
     return this.http.get<any[]>(url,{params})   
 }
 

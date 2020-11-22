@@ -15,13 +15,13 @@ export class TableScoreComponent implements OnInit {
   constructor(private scoreService:ScoreService,private auth:AuthService) { }
 
   ngOnInit(): void {
-    this.auth.getUserId().subscribe(res => {
-      this.scoreService.GetDetail(res).subscribe(res => {
-        this.detail = res
+    this.auth.getUserId().subscribe(id => {
+      this.scoreService.GetDetail(id).subscribe(table_score => {
+        this.detail = table_score
       })
-      this.scoreService.GetResultLearning(res).subscribe(res => {
-        this.result = res
-        console.log(res)
+      this.scoreService.GetResultLearning(id).subscribe(result_learning => {
+        this.result = result_learning
+        
       })     
     })
   }

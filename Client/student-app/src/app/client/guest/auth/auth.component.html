@@ -17,10 +17,15 @@
             <div class="text-danger" *ngIf="password.touched && password.errors?.required">
               Password is required!
             </div> 
-            <div class="row">
+            <!-- <div class="row">
               <label for="userName">you're admin?</label>
               <input type="checkbox" [(ngModel)]="isAdmin" [ngModelOptions]="{standalone: true}" >
-            </div>
+            </div> -->
+            <ngx-recaptcha2 #captchaElem
+                [siteKey]="siteKey"
+                 formControlName="recaptcha" 
+                 (success)="handleSuccess($event)" >        
+            </ngx-recaptcha2>
             <button type="submit" class="btn btn-primary">Login</button>
           </form>
         </div>

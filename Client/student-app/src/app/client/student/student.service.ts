@@ -17,7 +17,7 @@ export class StudentService {
 
   GetDepartment(id):Observable<string>{
     var url= environment.apiUrl +'/department/getbyid/'+id
-    return this.http.get<string>(url)
+    return this.http.get(url,{responseType:'text'})
   }
 
   GetStudentClass(id):Observable<string>{

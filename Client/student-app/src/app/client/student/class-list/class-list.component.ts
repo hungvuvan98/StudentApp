@@ -33,7 +33,6 @@ export class ClassListComponent implements OnInit {
   GetAll(semester){
     this.classService.GetAll(semester).subscribe(res=>{
       this.listClass=res
-      console.log(res)
     })
   }
 

@@ -1,0 +1,119 @@
+.home{
+    width: 100%;  
+}
+.home-top{
+    background-color: #ffffff;
+    padding-left: 175px;
+    padding-right: 175px;
+}
+.home-text-header{
+    color: #8c1515;
+    font-size: 26px;
+    margin-top: 30px;
+    font-weight: 500;
+    border-bottom: 1px solid  #8c1515; 
+    padding-bottom: 5px;
+}
+
+.home-bottom{
+    background-color: #dddddd;
+    padding-left: 175px;
+    padding-right: 175px;
+    height: 600px;
+}
+.nav .nav-item  .active {
+    color: whitesmoke !important;
+    background-color:#8c1515; 
+}
+.nav .nav-item .nav-link {
+    color: black;
+  
+}
+.home .home-top .row .box{
+    width: 65%;
+    border: 1px solid #c5c5c5;
+    margin-left: 15px;
+    height: 300px;
+    background-color: #ffffff !important;
+}
+.login{
+    margin-left: 20px;
+    padding:20px;
+     width: 30%;
+    background-color: #f2f1eb;
+}
+.login .button-login .btn{
+    background-color: #8c1515;
+    text-align: center;
+    width: 90%;
+    height: 40px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+     border-radius: 20px;
+}
+
+.login .button-login .btn a{
+   color: whitesmoke;
+}
+.login .button-login{
+    padding: auto;
+    text-align: center;
+}
+.login .text-login{
+    color: #8c1515;
+    font-weight: 25px !important;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.login .btn :hover{
+    text-decoration: underline;
+}
+.home .home-bottom  .box{
+    width: 100%;
+    border: 1px solid #c5c5c5;
+    height: 85%;
+    background-color: #ffffff !important;
+    margin-top: 15px;
+}
+
+.home .home-bottom  .box .nav .nav-item {
+   min-width: 16%;
+   
+}
+
+
+input{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+     border-radius: 20px;
+     border: 1px solid #dddddd;
+     color: black;
+     width: 300px;
+     height: 35px;
+     padding-left: 10px;
+    }
+    
+input:focus {
+     outline: none;
+     border: 1px solid #a0d18c;
+     color: black;
+}
+
+.datetime{
+    width: 10%;
+    left: 0;
+    color: #8c1515;
+}
+.title{
+    left: 0;
+    width: 90%;
+}
+.title a{
+    color: black;
+}
+.title p{
+    color: #8c1515;
+}
+.title a :hover{
+    text-decoration: underline;
+}

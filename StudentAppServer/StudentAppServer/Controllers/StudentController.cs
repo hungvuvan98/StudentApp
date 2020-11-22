@@ -131,12 +131,19 @@ namespace StudentAppServer.Controllers
         [Route(nameof(SendRegister))]
         public async Task<List<int>> SendRegister(List<SendRegisterModel> listModel)
         {
+            var userId = _currentUserService.GetId();
+            var semester= _unitOfWork.Semesters.GetAll().ToList().Last().Id;
+            if (listModel.Count == 0) {
+                var list = _unitOfWork.Takes.Find(x => x.Status==Status.Locked && x.Id==userId).ToList();
+                _unitOfWork.Takes.RemoveRange(list);
+                await _unitOfWork.SaveChanges();
+                return new List<int> { -1 };
+            } 
             int countAdd = 0, countDel = 0;
             var listAdd = new List<Take>();
             var listDelete = new List<Take>();
-            // var filter = _unitOfWork.Takes.Find(x => x.Id == listModel.ElementAt(0).Id);
             var listClass = await _unitOfWork.GetRegisteredClassByStudentIds
-                             .GetRegisteredClassByStudentId(listModel.ElementAt(0).Id, listModel.ElementAt(0).Semester);
+                             .GetRegisteredClassByStudentId(userId,semester);
 
             foreach (var item in listClass)
             {
@@ -157,7 +164,7 @@ namespace StudentAppServer.Controllers
             {
                 var take = new Take()
                 {
-                    Id = listModel.ElementAt(0).Id,
+                    Id = userId,
                     SecId = item.SecId,
                     Status=Status.Locked
                 };

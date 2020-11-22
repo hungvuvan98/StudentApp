@@ -1,5 +1,7 @@
+using BotDetect.Web;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,7 +27,8 @@ namespace StudentAppServer
             services.AddControllers().AddNewtonsoftJson(options =>
              options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
               );
-            services.AddHttpContextAccessor();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+           // services.AddHttpContextAccessor();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -51,6 +54,8 @@ namespace StudentAppServer
                              .AllowAnyHeader())
                .UseAuthentication()
                .UseAuthorization();
+
+            app.UseSimpleCaptcha(Configuration.GetSection("BotDetect"));
 
             app.UseEndpoints(endpoints =>
             {
