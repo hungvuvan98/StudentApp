@@ -9,10 +9,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PostComponent } from './post/post.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, AuthComponent, HeaderComponent, FooterComponent],
+  declarations: [HomeComponent, AuthComponent, HeaderComponent, FooterComponent,PostComponent],
   imports: [
     CommonModule,  
     NgxCaptchaModule,
