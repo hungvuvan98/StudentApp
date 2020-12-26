@@ -1,3 +1,19 @@
-<p>
-  post works!
-</p>
+<app-header></app-header>
+  
+    <div class="home">
+      <div class="home-right">     
+        <div class="list-category" *ngFor="let category of categories">
+          <a class="list-category-item" [routerLink]="[ 'category', category.id ]">
+            <span >{{category.name}}</span>
+          </a>
+        </div>      
+      </div>
+      <div class="home-center">
+        
+        <router-outlet></router-outlet>
+      </div> 
+      <div class="home-left"></div> 
+    </div>
+<app-footer></app-footer>
+
+

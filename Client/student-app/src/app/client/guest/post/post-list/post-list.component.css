@@ -1,0 +1,21 @@
+.post-list{
+    width: 100%;
+    height: 100%;
+    padding-left: 20px;
+    padding-top: 50px;
+}
+.post-list-item{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+.post-list-item a {
+    color: black;
+    font-weight: bold;
+}
+.post-list-item p {
+    color: #8c1515;
+    font-style: italic;
+}

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace StudentAppServer.Controllers
 {
     [AllowAnonymous]
-    public class PostController:ApiControllerBase
+    public class PostController : ApiControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
         public PostController(IUnitOfWork unitOfWork)
@@ -22,5 +22,15 @@ namespace StudentAppServer.Controllers
         public ActionResult<List<Post>> GetByCategory(string categoryId)
         => _unitOfWork.Posts.Find(x => x.PostCategoryId == categoryId).ToList();
 
+        [HttpGet("GetById/{id}")]
+        public ActionResult<Post> GetById(string id)
+        {
+            var post = _unitOfWork.Posts.Find(x => x.Id == id).FirstOrDefault();
+            return post;
+        }
+
+        [HttpGet("GetAllCategory")]
+        public ActionResult<List<PostCategory>> GetAllCategory()
+        => _unitOfWork.PostCategories.GetAll().ToList();
     }
 }

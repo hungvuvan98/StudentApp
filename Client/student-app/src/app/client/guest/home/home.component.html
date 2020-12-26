@@ -26,8 +26,8 @@
                               <div class="row ml-2">
                                 <div class="datetime">{{post.createdOn|date}}</div>
                                 <div class="title">
-                                    <a routerLink="#">{{post.title|titlecase}}</a>
-                                    <p class="">{{post.createdOn|date}}</p>
+                                   <a [routerLink]="[ '/post', post.id ]">{{post.title|titlecase}}</a>
+                                    <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{post.createdOn|date}}</p>
                                 </div>
                               </div>
                             </div>
@@ -42,8 +42,8 @@
                                     directionLinks="true"
                                     autoHide="true"
                                     responsive="true"
-                                    previousLabel="Trước"
-                                    nextLabel="Sau"
+                                    previousLabel=""
+                                    nextLabel=""
                                    class="text-left" 
                                    style="position: absolute;"
                                    (pageChange)="PageAction($event)">
@@ -62,6 +62,7 @@
             </div>        
         </div>
         <div class="home-bottom">
+           
             <div class="home-text-header">
                 <span>Tin tức</span>
             </div>
@@ -96,7 +97,7 @@
     <!-- login -->
       <ng-template #content let-c="close" let-d="dismiss">
         <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+          <h4 class="modal-title" id="modal-basic-title">Đăng nhập hệ thống</h4>
           <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -109,17 +110,18 @@
                         <div class="form-group">
                           <label for="userName">UserName</label>
                           <input type="text" class="form-control" formControlName="id" id="id"  >
-                        </div>
-                        <div class="text-danger" *ngIf="userId.touched && userId.errors?.required">
-                          UserName is required!
+                          <p class="text-danger" *ngIf="userId.touched && userId.errors?.required">
+                            UserName is required!
+                          </p>
                         </div>
                         <div class="form-group">
                           <label for="password">Password</label>
                           <input type="password" autocomplete class="form-control" formControlName="password" id="password" name="password" >
+                          <p class="text-danger" *ngIf="password.touched && password.errors?.required">
+                            Password is required!
+                          </p> 
                         </div>   
-                        <div class="text-danger" *ngIf="password.touched && password.errors?.required">
-                          Password is required!
-                        </div> 
+                       
                         <!-- <div class="row">
                           <label for="userName">you're admin?</label>
                           <input type="checkbox" [(ngModel)]="isAdmin" [ngModelOptions]="{standalone: true}" >

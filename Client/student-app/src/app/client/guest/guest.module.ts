@@ -10,17 +10,30 @@ import { FooterComponent } from './footer/footer.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PostComponent } from './post/post.component';
+import { PostListComponent } from './post/post-list/post-list.component';
+import { PostDetailComponent } from './post/post-detail/post-detail.component';
+import { PostService } from './post/post.service';
 
 
 @NgModule({
-  declarations: [HomeComponent, AuthComponent, HeaderComponent, FooterComponent,PostComponent],
+  declarations: [HomeComponent,
+    AuthComponent,
+    HeaderComponent,
+    FooterComponent,
+    PostComponent,
+    PostListComponent,
+    PostDetailComponent,
+    
+  ],
   imports: [
     CommonModule,  
     NgxCaptchaModule,
     ReactiveFormsModule,
     FormsModule,
     NgxPaginationModule,
-    GuestRoutingModule
-  ]
+    GuestRoutingModule,
+    
+  ],
+  providers:[PostService]
 })
 export class GuestModule { }

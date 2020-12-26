@@ -1,0 +1,48 @@
+.home{
+    width: 100%;  
+}
+.home-right{
+    background-color: #ffffff;
+    padding-left: 175px;
+    /* padding-right: 175px; */
+    width: 25%;
+    float: left;
+    padding-top: 30px;
+}
+
+.list-category{
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #cccccc;
+}
+
+
+.list-category-item{
+    color: black;
+}
+
+.list-category-item :hover{
+    background-color: #ebebeb;
+}
+
+.list-category:hover {
+    background-color: #ebebeb;
+   
+}
+a {
+ text-decoration: none;
+}
+a :hover {
+    color: #8c1515 !important;
+}
+
+.home-center{
+    width: 62%;
+    height: 100%;
+    float: left;
+}
+.home-left{
+    width: 13%;
+    height: 100%;
+    float: left;
+}

@@ -36,8 +36,6 @@ export class HomeComponent implements OnInit {
 
   getPostByCategory(categoryId) {
     this.homeService.getPostByCategory(categoryId).subscribe(data => {
-      console.log(data);
-      
       this.listPost = data;
     })
   }
