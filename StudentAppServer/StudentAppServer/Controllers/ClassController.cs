@@ -88,7 +88,11 @@ namespace StudentAppServer.Controllers
             {
                 var temp = _unitOfWork.Sections.Find(x => x.SecId == item.SecId).FirstOrDefault();
                 if (section.TimeSlotId == temp.TimeSlotId && section.Day == temp.Day)
-                    return temp.SecId;
+                {
+                    var nameOfItem = _unitOfWork.Courses.GetById(temp.CourseId).Title;
+                    return temp.SecId + "-" +nameOfItem ;
+                }
+                    
             }
             return "1";
         }

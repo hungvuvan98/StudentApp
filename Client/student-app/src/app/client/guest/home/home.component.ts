@@ -5,6 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '../../../shared/services/auth/auth.service';
 import { HomeService } from './home.service';
 
+declare var grecaptcha: any;
 
 @Component({
   selector: 'app-home',
@@ -12,15 +13,20 @@ import { HomeService } from './home.service';
   styleUrls: ['./home.component.css'],
   providers:[HomeService]
 })
+  
+
 export class HomeComponent implements OnInit {
+
 
   loginForm: FormGroup;
   isAdmin = false;
-  siteKey: string
+  protected siteKey: string
   listPost: any[];
   config: any
   
-  constructor(private fb: FormBuilder, private authService: AuthService, private route: Router,private modalService: NgbModal,private homeService:HomeService) {
+  constructor(private fb: FormBuilder, private authService: AuthService,
+    private route: Router, private modalService: NgbModal,
+    private homeService: HomeService) {
     
     this.siteKey = '6Ldhk-cZAAAAADlY8rhAjyjSUPOY2fPfCmkkZkG3';
     this.loginForm = this.fb.group({
@@ -43,12 +49,20 @@ export class HomeComponent implements OnInit {
   handleSuccess(data) {
     console.log(data);
   }
+
+  handleReset() {
+    grecaptcha.reset(); // link js import at index.html  <script src='https://www.google.com/recaptcha/api.js?render=explicit'></script>
+  }
+
   login(){
     if(this.isAdmin===false){
       this.authService.login(this.loginForm.value).subscribe(data=>{
         this.authService.saveToken(data['token'])
         this.modalService.dismissAll();
         this.route.navigate(['student'])
+      },
+        err => {
+         this.handleReset();    
       })
     }
     else if(this.isAdmin===true){

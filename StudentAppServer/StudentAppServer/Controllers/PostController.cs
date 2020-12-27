@@ -32,5 +32,10 @@ namespace StudentAppServer.Controllers
         [HttpGet("GetAllCategory")]
         public ActionResult<List<PostCategory>> GetAllCategory()
         => _unitOfWork.PostCategories.GetAll().ToList();
+
+        [HttpPost("search")]
+        public ActionResult<List<Post>> Search([FromBody] string searchText)
+        => _unitOfWork.Posts.Find(x => x.Content.Contains(searchText) ||
+                                        x.Title.Contains(searchText)).ToList();
     }
 }

@@ -23,7 +23,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
                   this.noticeService.show("error", `${err.error}`);
               }
               else if(err.status==400){
-                  this.noticeService.show("error", "status 400");
+                  this.noticeService.show("error", `${err.error}`);
               }
                else if(err.status==403){
                   this.noticeService.show("error", "status 403, Not Role");

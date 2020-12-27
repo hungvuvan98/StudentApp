@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { GuestRoutingModule } from './guest-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
@@ -13,6 +13,7 @@ import { PostComponent } from './post/post.component';
 import { PostListComponent } from './post/post-list/post-list.component';
 import { PostDetailComponent } from './post/post-detail/post-detail.component';
 import { PostService } from './post/post.service';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { PostService } from './post/post.service';
     PostComponent,
     PostListComponent,
     PostDetailComponent,
+    SearchComponent
     
   ],
   imports: [

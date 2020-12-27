@@ -22,30 +22,33 @@ namespace StudentAppServer.Controllers
 
         private readonly ICurrentUserService _currentUserService;
 
+        private readonly ReCaptchaService _reCaptchaService;
+
         public AccountController(IUnitOfWork unitOfWork, JwtService jwtService,
-                                  ICurrentUserService currentUserService)
+                                  ICurrentUserService currentUserService, ReCaptchaService reCaptchaService)
         {
             _unitOfWork = unitOfWork;
             _jwtService = jwtService;
             _currentUserService = currentUserService;
+            _reCaptchaService = reCaptchaService;
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        [Route(nameof(Login))]
-        public ActionResult<LoginResponseModel> Login(LoginModel model)
-        {
-            var student = _unitOfWork.Students
-                                      .GetSingleOrDefault(x => x.Id == model.Id
-                                                          && x.Password == model.Password);
-            if (student == null)
-            {
-                return NotFound("Account does not exist! ");
-            }
-            var appGroup = _unitOfWork.AppGroups.GetById(student.GroupId);
-            var token = _jwtService.GenerateToken(student.Id, student.Name, appGroup.Role);
-            return token;
-        }
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[Route(nameof(Login))]
+        //public ActionResult<LoginResponseModel> Login(LoginModel model)
+        //{
+        //    var student = _unitOfWork.Students
+        //                              .GetSingleOrDefault(x => x.Id == model.Id
+        //                                                  && x.Password == model.Password);
+        //    if (student == null)
+        //    {
+        //        return NotFound("Account does not exist! ");
+        //    }
+        //    var appGroup = _unitOfWork.AppGroups.GetById(student.GroupId);
+        //    var token = _jwtService.GenerateToken(student.Id, student.Name, appGroup.Role);
+        //    return token;
+        //}
 
         [HttpPost]
         [Route(nameof(ChangePassword))]
@@ -53,7 +56,7 @@ namespace StudentAppServer.Controllers
         {
             var currentId = _currentUserService.GetId();
             var student = _unitOfWork.Students.Find(x => x.Id == currentId && x.Password == model.OldPassword).FirstOrDefault();
-           
+
             if (student == null) return NotFound("Sai mat khau");
 
             student.Password = model.NewPassword;
@@ -70,41 +73,36 @@ namespace StudentAppServer.Controllers
             return id;
         }
 
-        // the captcha validation function
-        //private bool IsCaptchaCorrect(string userEnteredCaptchaCode, string captchaId)
-        //{
-        //    // create a captcha instance to be used for the captcha validation
-        //    SimpleCaptcha captcha = new SimpleCaptcha();
-        //    // execute the captcha validation
-        //    return captcha.Validate(userEnteredCaptchaCode, captchaId);
-        //}
+        [HttpPost]
+        [AllowAnonymous]
+        [Route(nameof(Login))]
+        public ActionResult<LoginResponseModel> Login(LoginModel model)
+        {
+            if (String.IsNullOrEmpty(model.Recaptcha))
+            {
+                return BadRequest("Recaptcha code is incorrect");
+            }
 
-        //[HttpPost]
-        //[Route(nameof(Post))]
-        //[AllowAnonymous]
+            bool resultRecaptcha = _reCaptchaService.IsValidCaptcha(model.Recaptcha);
 
-        //public ActionResult<LoginResponseModel> Post([FromBody] LoginModel model)
-        //{
-        //    string userEnteredCaptchaCode = model.UserEnteredCaptchaCode;
-        //    string captchaId = model.CaptchaId;
-            
-        //    if (!IsCaptchaCorrect(userEnteredCaptchaCode, captchaId))
-        //    {
-        //        return BadRequest("Sai ma capcha");
-        //    }
+            if (resultRecaptcha)
+            {
+                var student = _unitOfWork.Students
+                                      .GetSingleOrDefault(x => x.Id == model.Id
+                                                          && x.Password == model.Password);
+                if (student == null)
+                {
+                    return NotFound("Account does not exist! ");
+                }
+                var appGroup = _unitOfWork.AppGroups.GetById(student.GroupId);
 
-        //    var student = _unitOfWork.Students
-        //                              .GetSingleOrDefault(x => x.Id == model.Id
-        //                                                  && x.Password == model.Password);
-        //    if (student == null)
-        //    {
-        //        return NotFound("Account does not exist! ");
-        //    }
-        //    var appGroup = _unitOfWork.AppGroups.GetById(student.GroupId);
-        //    var token = _jwtService.GenerateToken(student.Id, student.Name, appGroup.Role);
-        //    return token;
-           
-        //}
+                var token = _jwtService.GenerateToken(student.Id, student.Name, appGroup.Role);
+
+                return token;
+            }
+
+            return NotFound("Account does not exist! ");
+        }
 
     }
 }

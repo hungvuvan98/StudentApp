@@ -83,6 +83,7 @@ namespace StudentAppServer.Infrastructure.Extensions
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<DbIntinializer>();
             services.AddTransient<JwtService>();
+            services.AddTransient<ReCaptchaService>();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
 
             return services;

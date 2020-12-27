@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { PostDetailComponent } from './post/post-detail/post-detail.component';
 import { PostListComponent } from './post/post-list/post-list.component';
 import { PostComponent } from './post/post.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   // { path: 'login', component: AuthComponent },
@@ -14,9 +15,9 @@ const routes: Routes = [
     children: [
       { path: 'category/:categoryId', component: PostListComponent },
       { path: ':postId', component: PostDetailComponent },
-      
     ]
   },
+  { path: 'search', component: SearchComponent }
 ];
 
 @NgModule({

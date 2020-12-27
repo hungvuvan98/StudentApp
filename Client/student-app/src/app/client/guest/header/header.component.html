@@ -9,7 +9,11 @@
             <div class="col-md-6">
                 <div class="nav-search">
                     <form class="form-inline" accept-charset="UTF-8">
-                        <input title="Search string" class="form-control mr-sm-2 search-input"  placeholder="Tìm kiếm..." type="text" id="search-field" name="strSearch" size="15" maxlength="128">
+                        <input title="tìm kiếm" class="form-control mr-sm-2 search-input"  
+                               placeholder="Tìm kiếm..." type="text" id="search-field" 
+                               name="strSearch" size="15" maxlength="128" [(ngModel)]="searchString"
+                               (keyup.enter)="search(searchString,content)"
+                               >
                         <!-- <button id="search-btn" type="submit" name="submit" aria-label="Search" formmethod="post">
                             <img src="/assets/img/search.jpg"></button> -->
                     </form>
@@ -37,7 +41,7 @@
                 </li>
                  <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Đào tạo sau đại học
+                    Đào tạo sau đại học 
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" routerLink="/post/category/4">Tuyển sinh</a>
@@ -66,3 +70,21 @@
     </nav>
 </header>
 
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Kết quả tìm kiếm cho <span class="text-danger">"{{searchString}}"</span></h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="post" *ngFor="let post of postsSearch">
+        <a [routerLink]="[ 'post', post.id ]">{{post.title}}</a>
+        <p>{{post.createdOn|date}}</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

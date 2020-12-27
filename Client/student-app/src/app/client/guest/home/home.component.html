@@ -97,7 +97,7 @@
     <!-- login -->
       <ng-template #content let-c="close" let-d="dismiss">
         <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Đăng nhập hệ thống</h4>
+          <h4 class="modal-title" id="modal-basic-title" style="color: #8c1515;">Đăng nhập hệ thống</h4>
           <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -108,15 +108,15 @@
                 <div class="col-md-4">
                     <form [formGroup]="loginForm" (ngSubmit)="login()">
                         <div class="form-group">
-                          <label for="userName">UserName</label>
-                          <input type="text" class="form-control" formControlName="id" id="id"  >
-                          <p class="text-danger" *ngIf="userId.touched && userId.errors?.required">
+                          <label for="userName">MSSV<span class="text-danger">*</span></label>
+                          <input type="text" class="form-control" formControlName="id" id="id"  placeholder="mã số sinh viên" >
+                          <span class="text-danger" *ngIf="userId.touched && userId.errors?.required">
                             UserName is required!
-                          </p>
+                          </span>
                         </div>
                         <div class="form-group">
-                          <label for="password">Password</label>
-                          <input type="password" autocomplete class="form-control" formControlName="password" id="password" name="password" >
+                          <label for="password">Mật khẩu<span class="text-danger">*</span></label>
+                          <input type="password" placeholder="mật khẩu" autocomplete class="form-control" formControlName="password" id="password" name="password" >
                           <p class="text-danger" *ngIf="password.touched && password.errors?.required">
                             Password is required!
                           </p> 
@@ -129,9 +129,12 @@
                         <ngx-recaptcha2 #captchaElem
                             [siteKey]="siteKey"
                              formControlName="recaptcha" 
+                             (reset)="handleReset()"
                              (success)="handleSuccess($event)" >        
                         </ngx-recaptcha2>
-                        <button type="submit" class="btn" style="background-color: #8c1515; color: whitesmoke;">Login</button>
+                        <div class="form-group">
+                          <button type="submit" class="btn form-control " style="background-color: #8c1515; color: whitesmoke;">Đăng nhập</button>
+                        </div>
                       </form>
                 </div>   
             </div>

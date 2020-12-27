@@ -11,8 +11,6 @@ namespace StudentAppServer.Models
 
         public string Password { get; set; }
 
-        //public string UserEnteredCaptchaCode { get; set; }
-
-        //public string CaptchaId { get; set; }
+        public string Recaptcha { get; set; }
     }
 }

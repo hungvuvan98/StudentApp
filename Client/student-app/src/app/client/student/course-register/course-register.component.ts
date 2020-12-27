@@ -66,7 +66,7 @@ export class CourseRegisterComponent implements OnInit {
             else
             {
               this.listRegisteredClass.pop();
-              this.noticeService.show('error',`Bị trùng thời khóa biểu với ${data}`) 
+              this.noticeService.show('error',`Bị trùng thời khóa biểu với mã lớp ${data}`) 
             }    
           })
         }
