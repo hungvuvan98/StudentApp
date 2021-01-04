@@ -17,10 +17,12 @@ const routes: Routes = [
     path: 'instructor',
     loadChildren: () => import('./client/instructor/instructor-routing.module').then(m => m.InstructorRoutingModule)
   },
-  {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin-routing.module').then(m => m.AdminRoutingModule)
-  },
+  // {
+  //   path: 'admin',
+  //   loadChildren: () => import('./admin/admin-routing.module').then(m => m.AdminRoutingModule)
+  // },
+  { path: 'admin', 
+  loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
 

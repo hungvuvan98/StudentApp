@@ -59,12 +59,11 @@ namespace StudentAppServer.Controllers
         [HttpGet(nameof(GetClassBySecId))]
         public async Task<ActionResult<GetListClass>> GetClassBySecId(string secId, string semester)
         {
-          var result= await _unitOfWork.GetListClasses.GetListClassBySecId(secId, semester);
+            var result = await _unitOfWork.GetListClasses.GetListClassBySecId(secId, semester);
             if (result == null)
                 return NotFound($"Không tồn tại mã lớp {secId} trong học kì {semester}");
-          return result;
+            return result;
         }
-        
 
         /// <summary>
         /// Get Registered Class of any student follow semester
@@ -84,15 +83,14 @@ namespace StudentAppServer.Controllers
         {
             var section = _unitOfWork.Sections.Find(x => x.SecId == listClass.Last().SecId).FirstOrDefault();
             listClass.Remove(listClass.Last());
-            foreach(var item in listClass)
+            foreach (var item in listClass)
             {
                 var temp = _unitOfWork.Sections.Find(x => x.SecId == item.SecId).FirstOrDefault();
                 if (section.TimeSlotId == temp.TimeSlotId && section.Day == temp.Day)
                 {
                     var nameOfItem = _unitOfWork.Courses.GetById(temp.CourseId).Title;
-                    return temp.SecId + "-" +nameOfItem ;
+                    return temp.SecId + "-" + nameOfItem;
                 }
-                    
             }
             return "1";
         }

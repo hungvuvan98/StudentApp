@@ -3,7 +3,7 @@
 <div style="padding-left: 260px;">
   <div class="main-header">THONG TIN CA NHAN</div>
   <div class="pl-5">
-   <span>Thong tin sinh vien</span>
+   <span class="bold">Thong tin sinh vien</span>
    <div class="row">
      <img src="{{student?.avatar}}" width="170px" height="170px" class="img-thumbnail">
      <div class="pl-5" > 
@@ -20,9 +20,9 @@
            <span style="font-weight:bold">Năm vào trường  :</span>
             {{student?.createdYear}}
          </li>
-         <li class="list-group-item pt-2" style="border:none">
+         <!-- <li class="list-group-item pt-2" style="border:none">
            <span style="font-weight:bold">Chương trình  : </span>
-         </li>             
+         </li>              -->
          <li class="list-group-item pt-2" style="border:none">
            <span style="font-weight:bold">Tình trạng học tập  :</span> 
            {{student?.status}}
@@ -49,33 +49,33 @@
      </div>
    </div>
    <hr>
-   <span>Kết quả học tập</span>
+   <span class="bold">Kết quả học tập</span>
    <div class="row pt-4">
      <div class="pl-5">
-       <p>Tổng kết học kỳ : {{resultLeaning?.semester}}</p>
-       <p>Trung bình tích lũy : {{resultLeaning?.cpa}}</p>
-       <p>Số TC nợ đăng ký : {{resultLeaning?.tcNoDK}}</p>
+       <p><span class="bold">Tổng kết học kỳ : </span>{{resultLeaning?.semester}}</p>
+       <p><span class="bold">Trung bình tích lũy :</span>  {{resultLeaning?.cpa}}</p>
+       <p><span class="bold">Số TC nợ đăng ký : </span> {{resultLeaning?.tcNoDK}}</p>
      </div>
      <div class="pl-5">
-       <p>Số TC tích lũy :{{resultLeaning?.tcdk}}</p>
-       <p>Trình độ sinh viên : {{resultLeaning?.trinhDo}}</p>
-       <p>Mức cảnh báo :  Mức {{resultLeaning?.mucCC}}</p>
+       <p><span class="bold">Số TC tích lũy :</span>{{resultLeaning?.tcdk}}</p>
+       <p><span class="bold">Trình độ sinh viên :</span>  {{resultLeaning?.trinhDo}}</p>
+       <p><span class="bold">Mức cảnh báo :</span>   Mức {{resultLeaning?.mucCC}}</p>
      </div>
    </div>
    <hr>
-  <span>Thong Tin Ca Nhan</span>
+  <span class="bold" >Thong Tin Ca Nhan</span>
    <div class="row">
      <div class="pl-5">   
-       <p>Ngay sinh :{{student?.birthDay|date}}</p>
-       <p>Email: {{student?.email}}</p>
-       <p>Dia chi :{{student?.address}}</p>
-       <p>Que quan :{{student?.birthplace}}</p>
+       <p><span class="bold">Ngay sinh :</span> {{student?.birthDay|date}}</p>
+       <p><span class="bold"> Email:</span> {{student?.email}}</p>
+       <p><span class="bold"> Dia chi :</span>{{student?.address}}</p>
+       <p><span class="bold"> Que quan :</span>{{student?.birthplace}}</p>
      </div>
      <div class="pl-5">
-       <p>CMND :{{student?.cardId}}</p>
-       <p>Nam vao truong :{{student?.createdYear}}</p>
-       <p>Email:{{student?.email}}</p>
-       <p>SDT :</p>
+       <p><span class="bold">CMND :</span> {{student?.cardId}}</p>
+       <p><span class="bold"> Nam vao truong :</span>{{student?.createdYear}}</p>
+       <p><span class="bold"> Email:</span>{{student?.email}}</p>
+       <!-- <p class="bold">SDT :</p> -->
      </div>
    </div>
   </div>
