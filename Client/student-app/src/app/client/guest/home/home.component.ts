@@ -79,7 +79,11 @@ export class HomeComponent implements OnInit {
   get password() { return this.loginForm.get('password')}  
 
   openLg(content) {
-    this.modalService.open(content);
+    if (this.authService.isAuthenticated()) {
+      this.route.navigate(['/student'])
+    }
+    else
+     this.modalService.open(content);
   }
 
   PageAction(event){

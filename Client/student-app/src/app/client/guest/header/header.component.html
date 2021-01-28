@@ -80,7 +80,7 @@
     </div>
     <div class="modal-body">
       <div class="post" *ngFor="let post of postsSearch">
-        <a [routerLink]="[ 'post', post.id ]">{{post.title}}</a>
+        <a [routerLink]="[ 'post', post.id ]" (click)="closeModel()">{{post.title}}</a>
         <p>{{post.createdOn|date}}</p>
       </div>
     </div>

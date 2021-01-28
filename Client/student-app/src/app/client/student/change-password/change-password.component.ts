@@ -20,8 +20,14 @@ export class ChangePasswordComponent  {
   changPassword() {
     this.auth.changPassword(this.changePasswordForm.value).subscribe(res => {
       console.log(res)
+      if (res == 1) {
+        this.noticeService.show("success", "Đổi mật khẩu thành công!"); 
+        this.auth.logout();
+      }
+
     })
   }
+
   get oldPass() { return this.changePasswordForm.get('oldPassword')}
 
   get newPass() { return this.changePasswordForm.get('newPassword')}  

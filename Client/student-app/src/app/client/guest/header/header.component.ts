@@ -31,5 +31,8 @@ export class HeaderComponent implements OnInit {
       }
     })
   }
+  closeModel() {
+    this.modalService.dismissAll();
+  }
 
 }
