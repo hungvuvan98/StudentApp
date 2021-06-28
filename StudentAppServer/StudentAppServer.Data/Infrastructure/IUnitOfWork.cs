@@ -37,7 +37,7 @@ namespace StudentAppServer.Data.Infrastructure
         IGetStudentInfoRepository GetStudentInfos { get; }
         IGetStudentRepository GetStudents { get; }
         ISemesterRepository Semesters { get; }
-
+        ITuitionFeeRepository TuitionFees { get; }
         Task<int> SaveChanges();
     }
 }

@@ -17,15 +17,15 @@
         <div class="w-80">
             <div class="scroll">
                <div class="row col-sm-12">
-                    <img src="./assets/img/ltit.png" height="40px" alt="">               
+                    <img src="./assets/img/ltit.png" height="40px" alt="">
                     <span class="text-header">Trang Sinh Viên Đăng Ký Học</span>
-                    <img src="./assets/img/rtit.png" height="40px" alt="">                    
+                    <img src="./assets/img/rtit.png" height="40px" alt="">
                </div>
-               <div class="container-fluid">           
+               <div class="container-fluid">
                      <div class="form-group form-inline pt-2">
                         <input class="form-control add" #classId placeholder="Ma Lop" />
                         <button type="button"  class="btn ml-3" (click)="RegisterClassTemp(classId.value)">Đăng ký lớp</button>
-                     </div>    
+                     </div>
                      <div class="row">
                          <table class="table table-bordered">
                             <thead class="thead-light text-center">
@@ -53,18 +53,18 @@
                                 <td>{{item.credit}}</td>
                                 <td class="text-center">
                                   <input type="checkbox" (click)="isCheckedById(item.secId)" style="width: 18px;height: 18px;" >
-                                </td>                               
+                                </td>
                               </tr>
-                            </tbody>                         
+                            </tbody>
                           </table>
                       <div class="tfoot">
                         <div class="pr-5 pb-2" style="border-bottom: 1px solid #dee2e6;">Tổng số TC đăng ký = {{totalCredit}}</div>
-                        
+
                       </div>
-                    </div>       
-  
-                    <div class="text-center">Thời khóa biểu các lớp đăng ký</div>    
-  
+                    </div>
+
+                    <div class="text-center">Thời khóa biểu các lớp đăng ký</div>
+
                     <div class="row">
                         <table class="table table-bordered">
                            <thead class="thead-light text-center">
@@ -72,7 +72,8 @@
                                <th>Thứ</th>
                                <th>Thời gian</th>
                                <th>Phòng học</th>
-                               <th>Lớp học</th>
+                               <th>Môn học</th>
+                               <th>Mã lớp học</th>
                              </tr>
                             </thead>
                             <tbody class="text-center">
@@ -80,17 +81,17 @@
                               <td>{{item.day}}</td>
                               <td>{{item.startHr}}:{{item.startMin}} đến {{item.endHr}}: {{item.endMin}}</td>
                               <td>{{item.building}} - {{item.roomNumber}}</td>
-                              <td>{{item.secId}}</td>                          
+                              <td>{{item.title}}</td>
+                              <td>{{item.secId}}</td>
                              </tr>
-                           </tbody>                         
+                           </tbody>
                          </table>
-                   </div>   
+                   </div>
                    <div class="text-center">
                         <button class="btn" (click)="SendRegister(listRegisteredClass)">Gửi đăng ký</button>
-                   </div>  
-               </div>    
+                   </div>
+               </div>
             </div>
         </div>
     </div>
   </div>
-  

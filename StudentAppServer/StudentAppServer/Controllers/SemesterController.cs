@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentAppServer.Data.Entities;
 using StudentAppServer.Data.Infrastructure;
+using StudentAppServer.Infrastructure.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,5 +51,22 @@ namespace StudentAppServer.Controllers
         [HttpGet(nameof(GetNewest))]
         public string GetNewest()
         => _unitOfWork.Semesters.GetAll().ToList().Last().Id;
+
+        [AllowAnonymous]
+        [HttpGet("{studentId}")]
+        public ActionResult<List<string>> GetAllSemestersOfStudent(string studentId)
+        {
+            var student = _unitOfWork.Students.GetById(studentId);
+            var createdYear = Convert.ToInt32(student.CreatedYear);
+            var semesters = _unitOfWork.Semesters.GetAll().ToList();
+            var result = new List<string>();
+            foreach (var item in semesters)
+            {
+                if (Convert.ToInt32(item.Id.Substring(0, 4)) >= createdYear)
+                    result.Add(item.Id);
+
+            }
+            return Ok(result);
+        }
     }
 }

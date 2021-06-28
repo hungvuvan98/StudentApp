@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {}
+    "C:\\Users\\hungv\\Desktop\\Do-an\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {}
   },
   "projects": {
-    "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {
+    "C:\\Users\\hungv\\Desktop\\Do-an\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
+        "projectUniqueName": "C:\\Users\\hungv\\Desktop\\Do-an\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
         "projectName": "StudentAppServer.Data",
-        "projectPath": "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
-        "packagesPath": "C:\\Users\\haita\\.nuget\\packages\\",
-        "outputPath": "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\obj\\",
+        "projectPath": "C:\\Users\\hungv\\Desktop\\Do-an\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj",
+        "packagesPath": "C:\\Users\\hungv\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hungv\\Desktop\\Do-an\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\haita\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hungv\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -70,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

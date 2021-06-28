@@ -40,10 +40,16 @@ namespace StudentAppServer.Data.Infrastructure
         private IGetStudentInfoRepository _getStudentInfo;
         private IGetStudentRepository _getStudents;
         private ISemesterRepository _semester;
+        private ITuitionFeeRepository _tuitionFee;
 
         public UnitOfWork(AppDbContext context)
         {
             _context = context;
+        }
+
+        public ITuitionFeeRepository TuitionFees
+        {
+            get => _tuitionFee ??= new TuitionFeerepository(_context);
         }
 
         public IAppGroupRepository AppGroups

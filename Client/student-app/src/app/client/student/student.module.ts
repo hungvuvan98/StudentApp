@@ -14,6 +14,11 @@ import { StudentClassComponent } from './student-class/student-class.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TableToeicComponent } from './table-toeic/table-toeic.component';
 import { TableScoreComponent } from './table-score/table-score.component';
+import { StudentFeeComponent } from './student-fee/student-fee.component';
+import { TimetableComponent } from './timetable/timetable.component';
+import { SearchRegisterClassComponent } from './search-register-class/search-register-class.component';
+import { CourseListComponent } from './course-list/course-list.component';
+import { SearchStudentByClassComponent } from './search-student-by-class/search-student-by-class.component';
 
 
 @NgModule({
@@ -27,7 +32,12 @@ import { TableScoreComponent } from './table-score/table-score.component';
     UpdateProfileComponent,
     StudentClassComponent,
     TableToeicComponent,
-    TableScoreComponent
+    TableScoreComponent,
+    StudentFeeComponent,
+    TimetableComponent,
+    SearchRegisterClassComponent,
+    CourseListComponent,
+    SearchStudentByClassComponent
   ],
   imports: [
     CommonModule,

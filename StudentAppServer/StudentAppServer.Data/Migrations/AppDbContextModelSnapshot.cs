@@ -447,6 +447,8 @@ namespace StudentAppServer.Data.Migrations
 
                     b.HasIndex("CourseId");
 
+                    b.HasIndex("Semester");
+
                     b.HasIndex("Building", "RoomNumber");
 
                     b.HasIndex("TimeSlotId", "Day");
@@ -460,6 +462,9 @@ namespace StudentAppServer.Data.Migrations
                         .HasColumnName("Id")
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id")
                         .HasName("PK__semester");
@@ -706,6 +711,28 @@ namespace StudentAppServer.Data.Migrations
                     b.ToTable("ToeicPoints");
                 });
 
+            modelBuilder.Entity("StudentAppServer.Data.Entities.TuitionFee", b =>
+                {
+                    b.Property<string>("DepartmentId")
+                        .HasColumnName("DepartmentId")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Semester")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<decimal>("Fee")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("DepartmentId", "Semester")
+                        .HasName("PK__tuitionFee");
+
+                    b.HasIndex("Semester");
+
+                    b.ToTable("TuitionFees");
+                });
+
             modelBuilder.Entity("StudentAppServer.Data.Entities.Warn", b =>
                 {
                     b.Property<string>("StudentId")
@@ -803,6 +830,10 @@ namespace StudentAppServer.Data.Migrations
                         .HasConstraintName("FK__section__course___1ED998B2")
                         .OnDelete(DeleteBehavior.Cascade);
 
+                    b.HasOne("StudentAppServer.Data.Entities.Semester", "SemesterTable")
+                        .WithMany("Sections")
+                        .HasForeignKey("Semester");
+
                     b.HasOne("StudentAppServer.Data.Entities.Classroom", "Classroom")
                         .WithMany("Sections")
                         .HasForeignKey("Building", "RoomNumber")
@@ -898,6 +929,22 @@ namespace StudentAppServer.Data.Migrations
                         .WithMany("ToeicPoints")
                         .HasForeignKey("StudentId")
                         .HasConstraintName("FK__toeic_student")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("StudentAppServer.Data.Entities.TuitionFee", b =>
+                {
+                    b.HasOne("StudentAppServer.Data.Entities.Department", "Department")
+                        .WithMany("TuitionFees")
+                        .HasForeignKey("DepartmentId")
+                        .HasConstraintName("FK__tuitionFees_department")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("StudentAppServer.Data.Entities.Semester", "SemesterTable")
+                        .WithMany("TuitionFees")
+                        .HasForeignKey("Semester")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

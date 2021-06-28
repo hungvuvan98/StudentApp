@@ -127,6 +127,32 @@ namespace StudentAppServer.Data
                     .HasMaxLength(200);
             });
 
+        
+
+            modelBuilder.Entity<TuitionFee>(entity =>
+            {
+                entity.HasKey(e => new { e.DepartmentId,e.Semester})
+                    .HasName("PK__tuitionFee");
+
+                entity.ToTable("TuitionFees");
+
+                entity.Property(e => e.DepartmentId)
+                    .HasColumnName("DepartmentId")
+                    .HasMaxLength(20);
+                entity.Property(e => e.Semester)
+                    .HasMaxLength(20);
+
+                entity.HasOne(t => t.Department)
+                   .WithMany(d => d.TuitionFees)
+                   .HasForeignKey(t => t.DepartmentId)
+                   .OnDelete(DeleteBehavior.Cascade)
+                   .HasConstraintName("FK__tuitionFees_department");
+
+                entity.HasOne(t => t.SemesterTable)
+                       .WithMany(s => s.TuitionFees)
+                       .HasForeignKey(x => x.Semester);
+            });
+
             modelBuilder.Entity<Instructor>(entity =>
             {
                 entity.ToTable("Instructors");
@@ -366,6 +392,9 @@ namespace StudentAppServer.Data
                     .HasForeignKey(d => new { d.Building, d.RoomNumber })
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK__section__1FCDBCEB");
+                entity.HasOne(section => section.SemesterTable)
+                      .WithMany(semester => semester.Sections)
+                      .HasForeignKey(sec => sec.Semester);
             });
 
             modelBuilder.Entity<Student>(entity =>

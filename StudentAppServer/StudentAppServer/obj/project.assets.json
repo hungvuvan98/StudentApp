@@ -5655,19 +5655,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\haita\\.nuget\\packages\\": {}
+    "C:\\Users\\hungv\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer\\StudentAppServer.csproj",
+      "projectUniqueName": "C:\\Users\\hungv\\Desktop\\Do-an\\StudentApp\\StudentAppServer\\StudentAppServer\\StudentAppServer.csproj",
       "projectName": "StudentAppServer",
-      "projectPath": "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer\\StudentAppServer.csproj",
-      "packagesPath": "C:\\Users\\haita\\.nuget\\packages\\",
-      "outputPath": "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer\\obj\\",
+      "projectPath": "C:\\Users\\hungv\\Desktop\\Do-an\\StudentApp\\StudentAppServer\\StudentAppServer\\StudentAppServer.csproj",
+      "packagesPath": "C:\\Users\\hungv\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hungv\\Desktop\\Do-an\\StudentApp\\StudentAppServer\\StudentAppServer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\haita\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hungv\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5681,8 +5681,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {
-              "projectPath": "D:\\destop\\doan3\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj"
+            "C:\\Users\\hungv\\Desktop\\Do-an\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj": {
+              "projectPath": "C:\\Users\\hungv\\Desktop\\Do-an\\StudentApp\\StudentAppServer\\StudentAppServer.Data\\StudentAppServer.Data.csproj"
             }
           }
         }
@@ -5734,7 +5734,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

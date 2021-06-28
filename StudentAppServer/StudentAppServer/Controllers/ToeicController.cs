@@ -2,6 +2,7 @@
 using StudentAppServer.Data.Entities;
 using StudentAppServer.Data.Infrastructure;
 using StudentAppServer.Infrastructure.Services;
+using StudentAppServer.Test;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace StudentAppServer.Controllers
         [Route(nameof(Get))]
         public List<ToeicPoint> Get()
         {
+
             var userId = _currentUserService.GetId();
             var userName = _currentUserService.GetUserName();
             var result= _unitOfWork.ToeicPoints.Find(x => x.StudentId == userId).ToList();
