@@ -1,5 +1,5 @@
 
-<a routerLink="/course-register">dang ky hoc</a>
+<!-- <a routerLink="/course-register">dang ky hoc</a> -->
 <div class="container-fluid">
     <div class="row">
       <div class="sidenav">
@@ -9,14 +9,15 @@
                <span class="ml-2">{{student?.name|uppercase}}</span>
           </li>
           <li class="list-group-item"><a routerLink="/student/announcement">Thư báo</a></li>
-          <li class="list-group-item"><a routerLink="/student/course-register">Dk hoc</a></li>
+          <li class="list-group-item"><a routerLink="/student/course-register">Đăng ký học</a></li>
           <li class="list-group-item"><a routerLink="/student/change-password">Đổi mật khẩu</a></li>
           <li class="list-group-item"><a routerLink="#" (click)="Logout()">Đăng xuất</a></li>
           <li class="list-group-item"><a routerLink="/student">Thông tin sinh viên</a></li>
           <li class="list-group-item"><a routerLink="/student/update-profile">Cập nhật thông tin cá nhân</a></li>
           <li class="list-group-item"><a routerLink="/student/student-class">Thông tin lớp sinh viên</a></li>
+          <li class="list-group-item"><a routerLink="/student/tuition-fee">Thông tin học phí</a></li>
         </ul>
-        
+
         <ul class="list-group dropdown-btn" (click)="drop('1')">
           <li class="list-group-item row">
               <i class="fa fa-angle-right pr-2 text-danger"  aria-hidden="true"></i>
@@ -25,8 +26,8 @@
         </ul>
         <ul class="list-group" [hidden]="show1" [(ngModel)]="show1"  ngDefaultControl>
           <li class="list-group-item pl-5"><a href="#">Chương trình đào tạo sv</a></li>
-          <li class="list-group-item pl-5"><a href="#">Danh mục học phần</a></li>
-          <li class="list-group-item pl-5"><a href="#">Tra cứu danh sách lớp sv</a></li>
+          <li class="list-group-item pl-5"><a href="/student/course-list">Danh mục học phần</a></li>
+          <li class="list-group-item pl-5"><a href="/student/search-student-by-class">Tra cứu danh sách lớp sv</a></li>
         </ul>
 
         <ul class="list-group dropdown-btn"(click)="drop('2')" >
@@ -36,10 +37,8 @@
           </li>
         </ul>
         <ul class="list-group" [hidden]="show2" [(ngModel)]="show2" ngDefaultControl>
-          <li class="list-group-item pl-5"><a href="#">Đăng ký học phần</a></li>
-          <li class="list-group-item pl-5"><a href="#">Đăng ký lớp học</a></li>
-          <li class="list-group-item pl-5"><a href="#">Thời khóa biểu</a></li>
-          <li class="list-group-item pl-5"><a href="#">Tra cứu đăng ký học tập</a></li>
+          <li class="list-group-item pl-5"><a href="/student/timetable">Thời khóa biểu</a></li>
+          <li class="list-group-item pl-5"><a href="/student/search-register">Tra cứu đăng ký học tập</a></li>
         </ul>
 
         <ul class="list-group dropdown-btn" (click)="drop('3')">
@@ -53,12 +52,12 @@
           <li class="list-group-item pl-5"><a routerLink="/student/table-score">Bảng điểm cá nhân</a></li>
         </ul>
 
-        <li class="list-group-item" >Đồ án-tốt nghiệp</li>
-       <li class="list-group-item">Phân ngành</li>
+        <!-- <li class="list-group-item" >Đồ án-tốt nghiệp</li>
+       <li class="list-group-item">Phân ngành</li> -->
      </div>
-     <div class="main">
+     <!-- <div class="main">
           <router-outlet></router-outlet>
-     </div>
+     </div> -->
     </div>
 </div>
 

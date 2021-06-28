@@ -12,11 +12,15 @@ export class MainService {
       var url= environment.apiUrl + '/semester/GetNewest'
       return this.http.get<string>(url)
     }
-   
+
     setSemester(semester):Observable<number>{
         var url= environment.apiUrl + '/semester/insert'
         var params= new HttpParams().set('id',semester)
        return this.http.get<number>(url,{params})
     }
 
+    getSemesters(studentId):Observable<string[]>{
+      var url= environment.apiUrl + '/semester/'+studentId;
+      return this.http.get<string[]>(url)
+    }
 }

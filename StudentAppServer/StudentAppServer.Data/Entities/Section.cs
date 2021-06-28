@@ -15,6 +15,7 @@ namespace StudentAppServer.Data.Entities
         public string SecId { get; set; }
 
         public string Semester { get; set; }
+        public Semester SemesterTable { get; set; }
 
         public string Year { get; set; }
 
@@ -31,7 +32,8 @@ namespace StudentAppServer.Data.Entities
         public string CourseId { get; set; }
         public Course Course { get; set; }
 
-        public virtual ICollection<Take> Takes { get; set; }
+
+        public ICollection<Take> Takes { get; set; }
         public ICollection<Teach> Teaches { get; set; }
     }
 }

@@ -1,0 +1,49 @@
+<app-sidebar></app-sidebar>
+<div style="padding-left: 260px;">
+    <div class="container-fluid">
+      <form>
+        <div class="form-group row">
+          <label for="semester" class="col-form-label">Học kì</label>
+          <div class="col-sm-4">
+            <select class="form-control" id="semester" #semester name="semester" (change)='onSelectChange(semester.value,studentIdClient.value)'>
+              <option *ngFor="let item of semesters" [value]="item">{{item}}</option>
+            </select>
+          </div>
+          <label for="semester" class="col-form-label">MSSV</label>
+          <div class="col-sm-4">
+              <input type="text" class="form-control" #studentIdClient [value]="studentId">
+          </div>
+        </div>
+        <b class="text-center mb-2" *ngIf="Student!=null"> Thông tin đăng ký học của sinh viên {{Student?.id}} - {{Student?.name}}</b>
+        <div class="form-group">
+          <table class="table table-hover table-bordered">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Học kì</th>
+                <th scope="col">Môn học</th>
+                <th scope="col">Mã HP</th>
+                <th scope="col">Mã lớp đăng ký</th>
+                <th scope="col">Số tín chỉ</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngIf="Student==null" class="text-center">
+                <td colspan="5"><b class="text-danger">Mã sinh viên {{studentIdClient.value}} không tồn tại</b></td>
+              </tr>
+              <tr *ngIf="registeredClass?.length==0 && Student!=null" class="text-center">
+                <td colspan="5"><b class="text-danger">Sinh viên {{Student?.name}} - {{Student?.id}} không đăng ký học kì {{semester.value}}</b></td>
+              </tr>
+              <tr *ngFor="let item of registeredClass; let i=index;">
+                <td>{{item.semester}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.courseId}}</td>
+                <td>{{item.secId}}</td>
+                <td>{{item.credit}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+</div>

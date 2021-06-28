@@ -10,9 +10,9 @@ import { NotificationService } from '../Notification/Notification.service';
 export class ErrorInterceptorService implements HttpInterceptor {
 
   constructor(private noticeService : NotificationService) { }
-  
+
   intercept(request: HttpRequest<any>,next: HttpHandler): Observable<HttpEvent<any>>{
-      
+
       return next.handle(request).pipe(
           retry(1),
           catchError((err)=>{
@@ -20,7 +20,10 @@ export class ErrorInterceptorService implements HttpInterceptor {
                   this.noticeService.show("error", "401 unauthorize");
               }
               else if(err.status==404){
-                  this.noticeService.show("error", `${err.error}`);
+                  this.noticeService.show("error", "Not Found");
+                  console.log(err);
+
+
               }
               else if(err.status==400){
                   this.noticeService.show("error", `${err.error}`);
@@ -35,5 +38,5 @@ export class ErrorInterceptorService implements HttpInterceptor {
           })
       )
     }
-  
+
   }

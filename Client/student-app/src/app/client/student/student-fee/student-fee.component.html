@@ -1,0 +1,35 @@
+<app-sidebar></app-sidebar>
+<div style="padding-left: 260px;">
+    <div class="container-fluid">
+        <h2>Thông tin học phí của học kì {{semester}}</h2>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Môn học</th>
+                <th scope="col">Mã HP</th>
+                <th scope="col">Mã lớp đăng ký</th>
+                <th scope="col">Số tín chỉ</th>
+                <th scope="col">Học phí</th>
+                <th scope="col">Tổng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of courseAndFees; let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{item.courseTitle}}</td>
+                <td>{{item.courseId}}</td>
+                <td>{{item.secId}}</td>
+                <td>{{item.credit}}</td>
+                <td>{{item.fee}}</td>
+                <td>{{item.fee * item.credit}}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+                <tr class="text-right">
+                    <th colspan="7" scope="row">Tổng học phí sinh viên phải đóng {{totalFee}}</th>
+                </tr>
+            </tfoot>
+          </table>
+    </div>
+</div>

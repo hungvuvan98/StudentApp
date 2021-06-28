@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using StudentAppServer.Data.Entities;
 using StudentAppServer.Data.Infrastructure;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,14 @@ namespace StudentAppServer.Controllers
         public DepartmentController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult<Department> GetDepartments()
+        {
+            var departments = _unitOfWork.Departments.GetAll();
+            return Ok(departments);
         }
 
         [HttpGet]

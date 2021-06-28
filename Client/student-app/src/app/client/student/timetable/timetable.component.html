@@ -1,0 +1,24 @@
+<app-sidebar></app-sidebar>
+<div style="padding-left: 260px;">
+    <div class="container-fluid">
+        <h2>Thời khóa biểu học kì {{semester}}</h2>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Môn học</th>
+                <th scope="col">Mã HP</th>
+                <th scope="col">Thời gian</th>
+                <th scope="col">Địa điểm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of timetable;">
+                <td>{{item.title}}</td>
+                <td>{{item.secId}}</td>
+                <td>{{item.startHr}}:{{item.startMin}} - {{item.endHr}}:{{item.endMin}}</td>
+                <td>{{item.building}} - {{item.roomNumber}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

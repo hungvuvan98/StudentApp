@@ -1,0 +1,35 @@
+<app-sidebar></app-sidebar>
+<div style="padding-left: 260px;">
+    <div class="container-fluid">
+      <form>
+        <div class="form-group row">
+          <label for="semester" class="col-form-label">Khoa/Viện</label>
+          <div class="col-sm-4">
+            <select class="form-control" id="semester" #departmentId (change)='onSelectChange(departmentId.value)'>
+              <option selected  disabled >Chọn khoa</option>
+              <option *ngFor="let item of departments " [value]="item.departmentId">{{item.name}}</option>
+            </select>
+          </div>
+        </div>
+        <b class="text-center text-danger" *ngIf="courses?.length==0">Không có dữ liệu</b>
+        <div class="form-group" *ngIf="courses!=null && courses?.length>0">
+          <table class="table table-hover table-bordered">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Môn học</th>
+                <th scope="col">Mã HP</th>
+                <th scope="col">Số tín chỉ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of courses; let i=index;">
+                <td>{{item.title}}</td>
+                <td>{{item.courseId}}</td>
+                <td>{{item.credits}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+</div>

@@ -29,7 +29,6 @@ namespace StudentAppServer.Controllers
             return studentClassName.ToString();
         }
 
-        [Authorize(Roles="Student")]
         [HttpGet]      
         [Route("GetListStudent/{studentId}")]
         public  ActionResult<List<Student>>  GetListStudent(string studentId){

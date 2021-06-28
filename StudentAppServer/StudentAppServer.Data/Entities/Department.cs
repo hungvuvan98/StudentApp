@@ -28,5 +28,7 @@ namespace StudentAppServer.Data.Entities
         public ICollection<InstructorDepartment> InstructorDepartments { get; set; }
 
         public ICollection<StudentClass> StudentClasses { get; set; }
+
+        public ICollection<TuitionFee> TuitionFees { get; set; }
     }
 }
