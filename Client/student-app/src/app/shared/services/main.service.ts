@@ -23,4 +23,10 @@ export class MainService {
       var url= environment.apiUrl + '/semester/'+studentId;
       return this.http.get<string[]>(url)
     }
+
+    getYears():Observable<any[]>{
+      var url= environment.apiUrl + '/semester';
+      return this.http.get<any[]>(url)
+    }
+
 }

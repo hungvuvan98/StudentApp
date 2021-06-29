@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,13 +26,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
-   // NgxPaginationModule,
+    //NgxPaginationModule,
     NotifierModule.withConfig(customNotifierOptions),
     GuestModule,
     StudentModule,
     InstructorModule
   ],
   providers: [
+    Title,
     AuthService,
     AuthGuardService,
     {

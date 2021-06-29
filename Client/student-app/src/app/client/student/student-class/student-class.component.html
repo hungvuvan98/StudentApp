@@ -2,30 +2,30 @@
 <div style="padding-left: 260px;">
 
     <div class="container-fluid">
-        <div class="title">Danh sach</div>   
-            <div class="row" > 
-              <form>                             
+        <div class="title text-center" style="margin-top: 20px; margin-bottom: 20px;">Danh sách sinh viên lớp <b>{{studentClass}}</b></div>
+            <div>
+              <form>
                 <table class="table table-hover table-bordered text-center">
                   <thead class="thead-light">
                   <tr>
-                    <th scope="col-*" >Mssv</th>
-                    <th scope="col-*" >Họ tên</th>
-                    <th scope="col-*">Ngay sinh</th>
-                    <th scope="col-*" >Khoa viện</th>
-                    <th scope="col-*">Trang thai</th>
+                    <th scope="col" >Mssv</th>
+                    <th scope="col" >Họ tên</th>
+                    <th scope="col">Ngay sinh</th>
+                    <th scope="col" >Khoa viện</th>
+                    <th scope="col">Trang thai</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr *ngFor="let student of students">   
-                    <td>{{student.id}}</td>   
-                    <td>{{student.name}}</td>  
-                    <td>{{student.birthDay|date}} </td>  
-                    <td>{{student.departmentId}}</td>  
-                    <td>{{student.status}}</td>   
+                  <tr *ngFor="let student of students">
+                    <td>{{student.id}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.birthDay|date}} </td>
+                    <td>{{student.departmentId}}</td>
+                    <td>{{student.status}}</td>
                   </tr>
                   </tbody>
-                </table>         
+                </table>
               </form>
-            </div>    
+            </div>
     </div>
 </div>

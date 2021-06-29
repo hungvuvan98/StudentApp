@@ -10,24 +10,44 @@
               <option *ngFor="let item of departments " [value]="item.departmentId">{{item.name}}</option>
             </select>
           </div>
+          <label  class="col-form-label">Tìm kiếm</label>
+          <div class="col-sm-4">
+           <input type="text" class="form-control" #searchString (input)="search(searchString.value,departmentId.value)">
+          </div>
         </div>
         <b class="text-center text-danger" *ngIf="courses?.length==0">Không có dữ liệu</b>
         <div class="form-group" *ngIf="courses!=null && courses?.length>0">
           <table class="table table-hover table-bordered">
             <thead class="thead-light">
               <tr>
+                <th scope="col">#</th>
                 <th scope="col">Môn học</th>
                 <th scope="col">Mã HP</th>
                 <th scope="col">Số tín chỉ</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of courses; let i=index;">
+              <tr *ngFor="let item of courses | paginate: { itemsPerPage: 10, currentPage: page }; let i=index;">
+                <th scope="col">{{i+1}}</th>
                 <td>{{item.title}}</td>
                 <td>{{item.courseId}}</td>
                 <td>{{item.credits}}</td>
               </tr>
             </tbody>
+            <tfoot>
+              <tr class="text-center">
+                <th scope="col" colspan="4">
+                  <pagination-controls
+                    (pageChange)="page = $event"
+                      autoHide="true"
+                      responsive="true"
+                      previousLabel="Trước"
+                      nextLabel="Sau"
+                    >
+                  </pagination-controls>
+                </th>
+              </tr>
+            </tfoot>
           </table>
         </div>
       </form>

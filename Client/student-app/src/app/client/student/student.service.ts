@@ -10,6 +10,7 @@ export class StudentService {
 
   constructor(private http:HttpClient) { }
 
+
   GetInfo(id):Observable<any[]>{
     var url = environment.apiUrl + '/student/info/' + id
     return this.http.get<any[]>(url)
@@ -40,6 +41,59 @@ export class StudentService {
   GetLevel():Observable<number>{
     var url=environment.apiUrl +'/toeic/CheckConditionToRegister'
     return this.http.get<number>(url)
-}
-  
+  }
+
+
+
+
+  // code of Student page
+  GetStudents():Observable<any[]>{
+
+    var url = environment.apiUrl + '/student/getall';
+    return this.http.get<any[]>(url);
+  }
+
+  GetDetail(id):Observable<any[]>{
+    var url = environment.apiUrl + '/student/getscore/';
+    return this.http.get<any[]>(url + id);
+  }
+
+  DeleteStudent(id):Observable<any>{
+    var url = environment.apiUrl + '/student/delete/'
+    var params= new HttpParams().set('id',id)
+    return this.http.delete<any>(url,{params});
+  }
+
+  FilterStudent(year?,dept?,className?):Observable<any[]>{
+    var url = environment.apiUrl + '/student/filter'
+    year=year.trim()
+    dept=dept.trim()
+    className=className.trim()
+    const params = new HttpParams()
+                    .set('Year', year)
+                    .set('Dept', dept)
+                    .set('ClassName',className);
+    return this.http.get<any[]>(url,{params})
+  }
+
+  GetClassName(year:string,dept_name:string): Observable<string[]> {
+    year = year.trim();
+    dept_name = dept_name.trim();
+    var url= environment.apiUrl + '/StudentClass/getclassname'
+    const options = year ?
+     { params: new HttpParams().set('year', year).set('dept_name',dept_name) } : {}
+
+    return this.http.get<string[]>(url, options)
+
+  }
+
+  getStudentClasses(year,departmentId):Observable<any[]>{
+    var url= environment.apiUrl + `/StudentClass/${year}/${departmentId}`;
+    return this.http.get<any[]>(url);
+  }
+
+  getStudentsByClassAndDepartment(departmentId, classId):Observable<any[]>{
+    var url=environment.apiUrl+`/student/${departmentId}/${classId}`;
+    return this.http.get<any[]>(url);
+  }
 }

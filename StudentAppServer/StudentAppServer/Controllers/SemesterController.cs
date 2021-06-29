@@ -40,6 +40,19 @@ namespace StudentAppServer.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult<List<string>> GetYears()
+        {
+            var years = new List<string>();
+            var semesters = _unitOfWork.Semesters.GetAll().ToList();
+            foreach (var item in semesters)
+            {
+                if (!years.Contains(item.Id.Substring(0, 4)))
+                    years.Add(item.Id.Substring(0, 4));
+            }
+            return Ok(years.TakeLast(5));
+        }
+
         [HttpDelete]
         [Route(nameof(Delete))]
         public async void Delete(string id)

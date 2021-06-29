@@ -1,10 +1,7 @@
 <app-sidebar></app-sidebar>
 <div style="padding-left: 260px;">
-    <div class="main-header mx-auto d-block">
-        <i class="fas fa-envelope-open-text text-danger"></i>
-        <span>Bảng điểm sinh viên</span>
-    </div>
     <div class="container-pluid">
+      <div class="title text-center" style="margin-top: 20px; margin-bottom: 20px;"><b>Bảng điểm sinh viên</b></div>
         <table class="table table-hover table-bordered">
             <thead class="thead-light">
             <tr>
@@ -19,19 +16,19 @@
             </tr>
             </thead>
             <tbody>
-           <tr *ngFor="let detail of detail ">    
-              <td>{{detail.semester}} </td>  
-              <td>{{detail.courseId}} </td>  
-              <td>{{detail.title}} </td>  
-              <td>{{detail.credits}} </td>  
-              <td>{{detail.secId}} </td>  
-              <td>{{detail.midterm}} </td>  
-              <td>{{detail.endterm}} </td>  
-              <td>{{detail.wordScore}} </td>                   
+           <tr *ngFor="let detail of detail ">
+              <td>{{detail.semester}} </td>
+              <td>{{detail.courseId}} </td>
+              <td>{{detail.title}} </td>
+              <td>{{detail.credits}} </td>
+              <td>{{detail.secId}} </td>
+              <td>{{detail.midterm}} </td>
+              <td>{{detail.endterm}} </td>
+              <td>{{detail.wordScore}} </td>
             </tr>
             </tbody>
-          </table>  
-          <div class="text-center pt-2 pb-2">Bảng điểm tổng kết</div>
+          </table>
+          <div class="text-center pt-2 pb-2"><b>Bảng điểm tổng kết</b></div>
           <table class="table table-hover table-bordered">
             <thead class="thead-light">
             <tr>
@@ -44,24 +41,23 @@
               <th scope="col">TC ĐK</th>
               <th scope="col">Trình độ</th>
               <th scope="col">Mức cc</th>
-              
+
             </tr>
             </thead>
             <tbody>
-           <tr *ngFor="let result of result ">    
-              <td>{{result.semester}} </td>  
-              <td>{{result.gpa}} </td>  
-              <td>{{result.cpa}} </td>  
-              <td>{{result.tcQua}} </td>  
-              <td>{{result.tcTichLuy}} </td>  
-              <td>{{result.tcNoDK}} </td>  
-              <td>{{result.tcdk}} </td>  
-              <td>{{result.trinhDo}} </td>      
-              <td>Mức {{result.mucCC}} </td>  
-                          
+           <tr *ngFor="let result of result ">
+              <td>{{result.semester}} </td>
+              <td>{{result.gpa}} </td>
+              <td>{{result.cpa}} </td>
+              <td>{{result.tcQua}} </td>
+              <td>{{result.tcTichLuy}} </td>
+              <td>{{result.tcNoDK}} </td>
+              <td>{{result.tcdk}} </td>
+              <td>{{result.trinhDo}} </td>
+              <td>Mức {{result.mucCC}} </td>
+
             </tr>
             </tbody>
-          </table>  
+          </table>
     </div>
 </div>
- 

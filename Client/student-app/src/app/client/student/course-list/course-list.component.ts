@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from '../../../shared/services/Notification/Notification.service';
 import { CourseListService } from './course-list.service';
 
 @Component({
@@ -9,9 +10,11 @@ import { CourseListService } from './course-list.service';
 })
 export class CourseListComponent implements OnInit {
 
+  page: number = 1;
   courses:any[];
+  courseTemp:any[];
   departments:any[];
-  constructor(private courseService:CourseListService) { }
+  constructor(private courseService:CourseListService,private noticeService:NotificationService) { }
 
   ngOnInit(): void {
     this.courses=null;
@@ -23,16 +26,28 @@ export class CourseListComponent implements OnInit {
   GetCourseByDepartment(departmentId:string):void{
     this.courseService.GetCourse(departmentId).subscribe(res=>{
         this.courses=res;
+        this.courseTemp=res;
     });
   }
 
   onSelectChange(departmentId:string){
-    console.log(departmentId);
 
     this.courseService.GetCourse(departmentId).subscribe(res=>{
         this.courses=res;
-        console.log(res);
-
+        this.courseTemp=res;
     });
+  }
+  search(searchString:string,departmentId:string){
+    if(searchString!=''){
+      this.courses=this.courseTemp.filter(x=>x.title.replace(/\s/g,'').toUpperCase().includes(searchString.replace(/\s/g,'').toUpperCase())
+                                            || x.courseId.replace(/\s/g,'').toUpperCase()==searchString.replace(/\s/g,'').toUpperCase()
+                                          );
+      if(this.courses.length==0){
+        this.courses=this.courseTemp;
+      }
+    }
+    else{
+      this.onSelectChange(departmentId);
+    }
   }
 }
