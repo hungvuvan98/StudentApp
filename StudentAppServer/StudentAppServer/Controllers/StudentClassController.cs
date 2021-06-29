@@ -37,5 +37,12 @@ namespace StudentAppServer.Controllers
             var listStudent =  _unitOfWork.Students.Find(x=>x.StudentClassId==student.StudentClassId).ToList();
             return listStudent ;
         }
+
+        [HttpGet("{year}/{departmentId}")]
+        public ActionResult<List<StudentClass>> Get(string year, string departmentId)
+        {
+            var classes = _unitOfWork.StudentClasses.Find(x => x.Year.Equals(year) && x.DepartmentId.Equals(departmentId)).ToList();
+            return Ok(classes);
+        }
     }
 }

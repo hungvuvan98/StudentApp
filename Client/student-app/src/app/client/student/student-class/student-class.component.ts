@@ -9,18 +9,22 @@ import { StudentService } from '../student.service';
 })
 export class StudentClassComponent implements OnInit {
 
-  studentId:string
-  students:any[]
+  studentId:string;
+  students:any[];
+  studentClass: string
   constructor(private studentService :StudentService, private authService:AuthService) { }
 
   ngOnInit(): void {
-    
+
     this.authService.getUserId().subscribe(res=>{
       this.studentId=res
-      this.studentService.GetListStudent(this.studentId).subscribe(res=>{      
-        this.students=res
-    })
-    })
+      this.studentService.GetListStudent(this.studentId).subscribe(stu=>{
+        this.students=stu
+    });
+      this.studentService.GetStudentClass(res).subscribe(cla=>{
+          this.studentClass=cla;
+      })
+    });
   }
 
 }

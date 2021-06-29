@@ -51,5 +51,4 @@ export class SearchRegisterClassComponent implements OnInit {
       });
     });
   }
-
 }

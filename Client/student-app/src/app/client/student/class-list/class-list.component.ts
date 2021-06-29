@@ -10,7 +10,7 @@ import { ClassListService } from './class-list.service';
   providers:[ClassListService]
 })
 export class ClassListComponent implements OnInit {
-  
+
   listClass: any[]
   detailClass:any
   config: any
@@ -27,8 +27,8 @@ export class ClassListComponent implements OnInit {
     this.mainService.getNewestSemester().subscribe(res=>{
       this.semester=res
       this.GetAll(this.semester)
-      
-    })  
+
+    })
   }
   GetAll(semester){
     this.classService.GetAll(semester).subscribe(res=>{
@@ -41,76 +41,76 @@ export class ClassListComponent implements OnInit {
   }
 
   SearchBySecId(secId: string){
-    if(secId!=''){      
+    if(secId!=''){
         var st : any[]
-        st = this.listClass.filter(x=>x.secId==secId)                             
+        st = this.listClass.filter(x=>x.secId.replace(/\s/g,'').toUpperCase()==secId.replace(/\s/g,'').toUpperCase())
         if(st.length!=0){
           this.listClass.length = 0
           this.listClass=st
-          this.message=` Có ${st.length} bản ghi được tìm thấy`         
-        }     
+          this.message=` Có ${st.length} bản ghi được tìm thấy`
+        }
     }
     else{
         this.ngOnInit()
     }
   }
   SearchByCourseId(courseId: string){
-    if(courseId!=''){      
+    if(courseId!=''){
         var st : any[]
-        st = this.listClass.filter(x=>x.courseId==courseId)                             
+        st = this.listClass.filter(x=>x.courseId.replace(/\s/g,'').toUpperCase()==courseId.replace(/\s/g,'').toUpperCase())
         if(st.length!=0){
           this.listClass.length = 0
           this.listClass=st
-          this.message=` Có ${st.length} bản ghi được tìm thấy`    
-        }     
+          this.message=` Có ${st.length} bản ghi được tìm thấy`
+        }
     }
     else{
         this.ngOnInit()
     }
   }
   SearchByCredit(credit){
-    if(credit!=''){      
+    if(credit!=''){
         var st : any[]
-        st = this.listClass.filter(x=>x.credit==parseInt(credit))                             
+        st = this.listClass.filter(x=>x.credit==parseInt(credit.replace(/\s/g,'').toUpperCase()))
         if(st.length!=0){
           this.listClass.length = 0
           this.listClass=st
-          this.message=` Có ${st.length} bản ghi được tìm thấy`    
-        }     
+          this.message=` Có ${st.length} bản ghi được tìm thấy`
+        }
     }
     else{
         this.ngOnInit()
     }
   }
   SearchByDepartment(dept){
-    if(dept!=''){      
+    if(dept!=''){
         var st : any[]
-        st = this.listClass.filter(x=>x.name.toLowerCase().includes(dept.toLowerCase()))                             
+        st = this.listClass.filter(x=>x.name.replace(/\s/g,'').toUpperCase().includes(dept.replace(/\s/g,'').toUpperCase()))
         if(st.length!=0){
           this.listClass.length = 0
           this.listClass=st
-          this.message=` Có ${st.length} bản ghi được tìm thấy`    
-        }     
+          this.message=` Có ${st.length} bản ghi được tìm thấy`
+        }
     }
     else{
         this.ngOnInit()
     }
   }
   SearchByTitle(title){
-    if(title!=''){      
+    if(title!=''){
         var st : any[]
-        st = this.listClass.filter(x=>x.title.toLowerCase().includes(title.toLowerCase()))                             
+        st = this.listClass.filter(x=>x.title.replace(/\s/g,'').toUpperCase().includes(title.replace(/\s/g,'').toUpperCase()))
         if(st.length!=0){
           this.listClass.length = 0
           this.listClass=st
-          this.message=` Có ${st.length} bản ghi được tìm thấy`    
-        }     
+          this.message=` Có ${st.length} bản ghi được tìm thấy`
+        }
     }
     else{
         this.ngOnInit()
     }
   }
-  
+
 
   PageAction(event){
     this.config = {

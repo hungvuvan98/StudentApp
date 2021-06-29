@@ -127,6 +127,13 @@ namespace StudentAppServer.Controllers
         public Student GetById(string id)
         => _unitOfWork.Students.GetById(id);
 
+        [HttpGet("{departmentId}/{classId}")]
+        public ActionResult<List<Student>> GetByClassAndDepartment(string classId, string departmentId)
+        {
+            var students = _unitOfWork.Students.Find(x => x.DepartmentId.Equals(departmentId) && x.StudentClassId.Equals(classId));
+            return Ok(students);
+        }
+
         [HttpPost]
         [Route(nameof(SendRegister))]
         public async Task<List<int>> SendRegister(List<SendRegisterModel> listModel)

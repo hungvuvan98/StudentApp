@@ -1,1 +1,68 @@
-<p>search-student-by-class works!</p>
+<app-sidebar></app-sidebar>
+<div style="padding-left: 260px;">
+    <div class="container-fluid">
+      <form>
+        <div class="form-group row">
+          <label  class="col-form-label">Khóa học</label>
+          <div class="col-sm-2">
+            <select class="form-control" #year (change)="getClasses(year.value,departmentId.value)">
+              <option selected>Chọn khóa học</option>
+              <option *ngFor="let item of createdYears" [value]="item">{{item}}</option>
+            </select>
+          </div>
+          <label  class="col-form-label">Khoa/Viện</label>
+          <div class="col-sm-4">
+            <select class="form-control" #departmentId (change)="getClasses(year.value,departmentId.value)">
+              <option selected disabled>Chọn khoa</option>
+              <option *ngFor="let item of departments" [value]="item.departmentId">{{item.name}}</option>
+            </select>
+          </div>
+          <label  class="col-form-label">Lớp</label>
+          <div class="col-sm-4">
+            <select class="form-control" #studentClassId (change)="getStudent(departmentId.value,studentClassId.value)">
+              <option selected [disabled]>Chọn lớp</option>
+              <option *ngFor="let item of studentClasses" [value]="item.id">{{item.name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <table class="table table-hover table-bordered">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Mã sv</th>
+                <th scope="col">Họ tên</th>
+                <th scope="col">Năm vào trường</th>
+                <th scope="col">Email</th>
+                <th scope="col">Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="students?.length==0" class="text-center">
+                <td colspan="5"> <b> Không có dữ liệu</b></td>
+              </tr>
+              <tr *ngFor="let item of students | paginate: { itemsPerPage: 10, currentPage: page };let i=index;">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.createdYear}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.status==0?"Đang học":"Thôi học"}}</td>
+              </tr>
+              <tr class="text-center">
+                <th scope="col" colspan="5">
+                  <pagination-controls
+                    (pageChange)="page = $event"
+                      autoHide="true"
+                      responsive="true"
+                      previousLabel="Trước"
+                      nextLabel="Sau"
+                    >
+                  </pagination-controls>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+</div>

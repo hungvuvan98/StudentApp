@@ -11,7 +11,7 @@
           </div>
           <label for="semester" class="col-form-label">MSSV</label>
           <div class="col-sm-4">
-              <input type="text" class="form-control" #studentIdClient [value]="studentId">
+              <input type="text" class="form-control" #studentIdClient [value]="studentId" (input)='onSelectChange(semester.value,studentIdClient.value)'>
           </div>
         </div>
         <b class="text-center mb-2" *ngIf="Student!=null"> Thông tin đăng ký học của sinh viên {{Student?.id}} - {{Student?.name}}</b>

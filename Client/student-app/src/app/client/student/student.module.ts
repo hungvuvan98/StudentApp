@@ -37,7 +37,7 @@ import { SearchStudentByClassComponent } from './search-student-by-class/search-
     TimetableComponent,
     SearchRegisterClassComponent,
     CourseListComponent,
-    SearchStudentByClassComponent
+    SearchStudentByClassComponent,
   ],
   imports: [
     CommonModule,
